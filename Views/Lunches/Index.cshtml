@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Seating.Models.Lunch>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee.DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position.PositionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LunchTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LongerLunch)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.PositionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LunchTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LongerLunch)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.LunchID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.LunchID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.LunchID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

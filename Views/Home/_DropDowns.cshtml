@@ -1,0 +1,451 @@
+﻿@{
+    var employee = ViewBag.EmployeesNames;
+    var positionNames = ViewBag.PositionNames;
+    var modelOrdered = ViewBag.LunchTimes;
+    var positionOrdered = ViewBag.positionOrdered;
+    var breakOffFloor = ViewBag.breakOffFloor;
+    var dthOffFloor = ViewBag.dthOffFloor;
+    var lunchOffFloor = ViewBag.lunchOffFloor;
+    var offFloor = 0;
+    var DTHquestion = "Dispatcher:\nTo go on the list, submit your name and position. Your name will flash for one minute to alert relief. " +
+                "When you get back from your DTH, let relief know and they'll remove you from the list. Don't remove yourself.\n\nRelief:\n" +
+                "After you have sent a dispatcher, check the box next to their position to show them off the floor.\nWhen the dispatcher returns, click " +
+                "the dispatcher's name to remove them from the list.";
+    var Breakquestion = "Dispatcher:\nTo go on the list, submit your name and position. Your name will flash for one minute to alert relief. " +
+                "When you get back from your break, let relief know and they'll remove you from the list. Don't remove yourself.\n\nRelief:\n" +
+                "After you have sent a dispatcher, check the box next to their position to show them off the floor.\nWhen the dispatcher returns, click " +
+                "the dispatcher's name to remove them from the list.";
+    var Lunchquestion = "Dispatcher:\nTo go on the list, click the Add Lunch button. You'll be taken to a new screen.\n" +
+            "When you get back from your lunch, let relief know and they'll remove you from the list. Don't remove yourself.\n\nRelief:\n" +
+            "About a minute before the dispatcher's lunch is set to start, their name will flash to remind you. " +
+            "After you have sent a dispatcher to lunch, check the box next to their position to show them off the floor.\nWhen the dispatcher returns, click " +
+            "the dispatcher's name to remove them from the list.";
+}
+
+@foreach (var item in breakOffFloor)
+{
+    if (item != null)
+    {
+        offFloor += 1;
+    }
+}
+
+@foreach (var item in dthOffFloor)
+{
+    if (item != null)
+    {
+        offFloor += 1;
+    }
+}
+
+@foreach (var item in lunchOffFloor)
+{
+    if (item != null)
+    {
+        offFloor += 1;
+    }
+}
+
+<h3 style="margin-left:10em;">Off the floor: @offFloor</h3>
+<div class="card" id="Dropdowns" style="width: 12.5em; margin-left: .5em; position:absolute">
+    <div class="card-body" id="refresh-card" style="margin-right:3em; margin-left:-.5em">
+        <h5 class="card-title " style="text-align:center; display:inline-block; margin-left:3em">DTH     <img src="~/Content/Images/question.jpg" height="15" width="15" 
+            data-toggle="popover" title="@DTHquestion"/></h5>
+        <table class="table-bordered" style="width:10em;">
+            @*populate the table with only those breaks that lack a TimeCleared value*@
+            @if (ViewBag.Dths != null)
+            {
+                foreach (var item in ViewBag.Dths)
+                {
+                    if (item.TimeCleared == null)
+                    {
+                        if (item.TimeEntered.AddMinutes(1) > DateTime.Now)
+                        {
+                            if (item.EmpSent == false)
+                            {
+                                <tr>
+                                    @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                    <td class="listTime">
+                                        <input type="hidden" class="hiddenDthID" value="@item.DthID" />
+                                        <a href="Javascript:;" class="empNameDth" style="color:black">@item.Employee.DisplayName</a>
+                                    </td>
+                                    <td class="listTime" style="width:2.5em">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="listTime" style="width:1.5em; text-align:center">
+                                        <input type="checkbox" class="dthSent" value="@item.EmpSent" />
+                                    </td>
+                                </tr>
+                            }
+                            if (item.EmpSent == true)
+                            {
+                                <tr>
+                                    @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                    <td class="empSentGreen">
+                                        <input type="hidden" class="hiddenDthID" value="@item.DthID" />
+                                        <a href="Javascript:;" class="empNameDth" style="color:black">@item.Employee.DisplayName</a>
+                                    </td>
+                                    <td class="empSentGreen" style="width:2.5em">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="empSentGreen" style="width:1.5em; text-align:center">
+                                        <img height="13" width="13" src="~/Content/Images/disabledcheck.jpg" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            if (item.EmpSent == false)
+                            {
+                                <tr>
+                                    @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                    <td class="DthIdNumber">
+                                        <input type="hidden" class="hiddenDthID" value="@item.DthID" />
+                                        <a href="Javascript:;" class="empNameDth" style="color:black">@item.Employee.DisplayName</a>
+                                    </td>
+                                    <td class="DthIdNumber" style="width:2.5em">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="DthIdNumber" style="width:1.5em; text-align:center">
+                                        <input type="checkbox" class="dthSent" value="@item.EmpSent" />
+                                    </td>
+                                </tr>
+                            }
+                            if (item.EmpSent == true)
+                            {
+                                <tr>
+                                    @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                    <td class="DthIdNumber" style="background-color:lightgreen">
+                                        <input type="hidden" class="hiddenDthID" value="@item.DthID" />
+                                        <a href="Javascript:;" class="empNameDth" style="color:black">@item.Employee.DisplayName</a>
+                                    </td>
+                                    <td class="DthIdNumber" style="width:2.5em;background-color:lightgreen">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="DthIdNumber" style="width:1.5em; background-color:lightgreen;text-align:center">
+                                        <img height="13" width="13" src="~/Content/Images/disabledcheck.jpg" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                }
+            }
+        </table>
+        @*<div class="form formBuffer" style="text-align:center">
+                <div class="col-med-6">
+                    <select class="index-dropdown" id="dthemployeeId">
+                        <option value="" selected>-- Dispatcher --</option>
+                        @foreach (var employeeName in employee)
+                        {
+                            <option value="@employeeName.EmployeeID">@employeeName.DisplayName</option>
+                        }
+                    </select>
+                    <select class="index-dropdown" id="dthpositionId" style="margin-top: .5em">
+                        <option value="" selected>-- Position --</option>
+                        @foreach (var positionName in positionOrdered)
+                        {
+                            <option value="@positionName.PositionID">@positionName.PositionName</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-med-12 formBuffer">
+                    <button id="Dthsubmit-form" class="btn btn-secondary btn-sm">Submit</button>
+                </div>
+            </div>*@
+    </div>
+</div>
+
+@*start the break list table*@
+<div class="card" style="width: 12.5em; display: inline-block; margin-left: 12em;position: absolute">
+    <div class="card-body">
+        <h5 class="card-title " style="text-align:center; display:inline-block; margin-left:3em">Break     <img src="~/Content/Images/question.jpg" height="15" width="15" 
+            data-toggle="popover" title="@Breakquestion"/></h5>
+        <table class="table-bordered" style="width:11em">
+            @*populate the table with only those breaks that lack a TimeCleared value*@
+            @if (ViewBag.Breaks != null)
+            {
+                foreach (var item in ViewBag.Breaks)
+                {
+                    if (item.TimeCleared == null)
+                    {
+                        if (item.TimeEntered.AddMinutes(1) > DateTime.Now)
+                        {
+                            if (item.EmpSent == false)
+                            {
+                                <tr>
+                                    @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                    <td class="listTime">
+                                        <input type="hidden" class="hiddenBreaksID" value="@item.BreakID" />
+                                        <a href="Javascript:;" class="empName" style="color:black">@item.Employee.DisplayName</a>
+                                    </td>
+                                    <td class="listTime" style="width:2.5em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="listTime" style="width:1.5em; text-align:center">
+                                        <input type="checkbox" class="breakSent" value="@item.EmpSent" />
+                                    </td>
+                                </tr>
+                            }
+                            if (item.EmpSent == true)
+                            {
+                                <tr style="background-color:lightgreen">
+                                    @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                    <td class="breakIdNumber">
+                                        <input type="hidden" class="hiddenBreaksID" value="@item.BreakID" />
+                                        <a href="Javascript:;" class="empName" style="color:black">@item.Employee.DisplayName</a>
+                                    </td>
+                                    <td class="breakIdNumber" style="width:2.5em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="breakIdNumber" style="width:1.5em; text-align:center">
+                                        <img height="13" width="13" src="~/Content/Images/disabledcheck.jpg" />
+                                    </td>
+                                </tr>
+                            }
+
+                        }
+                        else
+                        {
+                            if (item.EmpSent == false)
+                            {
+                                <tr>
+                                    @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                    <td class="breakIdNumber">
+                                        <input type="hidden" class="hiddenBreaksID" value="@item.BreakID" />
+                                        <a href="Javascript:;" class="empName" style="color:black">@item.Employee.DisplayName</a>
+                                    </td>
+                                    <td class="breakIdNumber" style="width:2.5em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="breakIdNumber" style="width:1.5em; text-align:center">
+                                        <input type="checkbox" class="breakSent" value="@item.EmpSent" />
+                                    </td>
+                                </tr>
+                            }
+                            if (item.EmpSent == true)
+                            {
+                                <tr style="background-color:lightgreen">
+                                    @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                    <td class="breakIdNumber">
+                                        <input type="hidden" class="hiddenBreaksID" value="@item.BreakID" />
+                                        <a href="Javascript:;" class="empName" style="color:black">@item.Employee.DisplayName</a>
+                                    </td>
+                                    <td class="breakIdNumber" style="width:2.5em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="breakIdNumber" style="width:1.5em; text-align:center">
+                                        <img height="13" width="13" src="~/Content/Images/disabledcheck.jpg" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    }
+                }
+            }
+        </table>
+        @*<div class="form formBuffer" style="text-align:center;">
+                <div class="col-med-6">
+                    <select class="index-dropdown" id="employeeId">
+                        <option value="" selected>-- Dispatcher --</option>
+                        @foreach (var employeeName in employee)
+                        {
+                            <option value="@employeeName.EmployeeID">@employeeName.DisplayName</option>
+                        }
+                    </select>
+                    <select class="index-dropdown" id="positionId" style="margin-top: .5em;">
+                        <option value="" selected>-- Position --</option>
+                        @foreach (var positionName in positionOrdered)
+                        {
+                            <option value="@positionName.PositionID">@positionName.PositionName</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-med-12 formBuffer">
+                    <button id="submit-form" class="btn btn-secondary btn-sm">Submit</button>
+                </div>
+            </div>*@
+    </div>
+</div>
+<div class="card" style="width: 17em; display:inline-block;margin-left:25.5em;position: absolute;">
+    <div class="card-body">
+                <h5 class="card-title " style="text-align:center; display:inline-block; margin-left:3em">Lunch     <img src="~/Content/Images/question.jpg" height="15" width="15" 
+            data-toggle="popover" title="@Lunchquestion"/></h5>
+        <table class="table-bordered" id="table_lunch" style="width:15em;">
+            @*populate the table with only those breaks that lack a TimeCleared value*@
+            @if (ViewBag.Lunches != null)
+            {
+                foreach (var item in modelOrdered)
+                {
+                    if (DateTime.Now >= item.LunchTime.AddMinutes(-1) && DateTime.Now <= item.LunchTime.AddMinutes(1))
+                    {
+                        if (item.TimeCleared == null)
+                        {
+                            if (item.EmpSent == false)
+                            {
+                                <tr class="listTime">
+                                    @*Make each name clickable - deletes the lunch*@
+                                    <td class="LunchIdNumber">
+                                        @if (item.LongerLunch == false && item.Double == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName</a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl</div></a>
+                                        }
+                                        @if (item.Double == false && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - 45</div></a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl -45</div></a>
+                                        }
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.LunchTime.ToString("HH:mm")
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:1.5em; text-align:center">
+                                        <input type="checkbox" class="lunchSent" value="@item.EmpSent" />
+                                    </td>
+                                </tr>
+                            }
+                            if (item.EmpSent == true)
+                            {
+                                <tr style="background-color:lightgreen">
+                                    @*Make each name clickable - deletes the lunch*@
+                                    <td class="LunchIdNumber">
+                                        @if (item.LongerLunch == false && item.Double == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName</a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl</div></a>
+                                        }
+                                        @if (item.Double == false && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - 45</div></a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl -45</div></a>
+                                        }
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.LunchTime.ToString("HH:mm")
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:1.5em; text-align:center;">
+                                        <img height="13" width="13" src="~/Content/Images/disabledcheck.jpg" />
+                                    </td>
+                                </tr>
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        if (item.TimeCleared == null)
+                        {
+                            if (item.EmpSent == false)
+                            {
+                                <tr>
+                                    @*Make each name clickable - deletes the lunch*@
+                                    <td class="LunchIdNumber">
+                                        @if (item.LongerLunch == false && item.Double == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName</a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl</div></a>
+                                        }
+                                        @if (item.Double == false && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - 45</div></a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl -45</div></a>
+                                        }
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.LunchTime.ToString("HH:mm")
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:1.5em; text-align:center">
+                                        <input type="checkbox" class="lunchSent" value="@item.EmpSent" />
+                                    </td>
+                                </tr>
+                            }
+                            if (item.EmpSent == true)
+                            {
+                                <tr style="background-color:lightgreen">
+                                    @*Make each name clickable - deletes the lunch*@
+                                    <td class="LunchIdNumber">
+                                        @if (item.LongerLunch == false && item.Double == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName</a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl</div></a>
+                                        }
+                                        @if (item.Double == false && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - 45</div></a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl -45</div></a>
+                                        }
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.LunchTime.ToString("HH:mm")
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:1.5em; text-align:center;">
+                                        <img height="13" width="13" src="~/Content/Images/disabledcheck.jpg" />
+                                    </td>
+                                </tr>
+                            }
+
+                        }
+                    }
+                }
+            }
+        </table>
+        @*<div class="form" style="width:13em; justify-content:center">
+                <a class="btn btn-secondary btn-sm" style="margin-top:1.25em; margin-left:4.5em;" href="/Home/Lunch" role="button">Add Lunch</a>
+            </div>*@
+    </div>
+</div>

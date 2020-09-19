@@ -1,0 +1,21 @@
+﻿@model Seating.Models.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <div style="margin-left:15em; width:60em; margin-top:5em">
+        <h3>Are you sure you want to remove @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)? </h3>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color" style="margin-top:5em">
+                <input type="submit" value="Delete" class="btn btn-secondary btn-sm" />
+                <a style="margin-left:1em" class="btn btn-secondary btn-sm" href="/Employees/Index" role="button">Back</a>
+            </div>
+        }
+    </div>
+}

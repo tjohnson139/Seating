@@ -1,0 +1,1182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Runtime.InteropServices</name>
+  </assembly>
+  <members>
+    <member name="T:System.DataMisalignedException">
+      <summary>L'eccezione generata quando viene eseguita la lettura o la scrittura di un'unità di dati da o in un indirizzo che non è un multiplo delle dimensioni dei dati.La classe non può essere ereditata.</summary>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:System.DataMisalignedException.#ctor">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.DataMisalignedException" />. </summary>
+    </member>
+    <member name="M:System.DataMisalignedException.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.DataMisalignedException" /> utilizzando un messaggio di errore specificato.</summary>
+      <param name="message">Oggetto <see cref="T:System.String" /> che descrive l'errore.Il contenuto di <paramref name="message" /> deve essere facilmente comprensibile.È necessario che il chiamante del costruttore assicuri che la stringa sia stata localizzata per le impostazioni cultura correnti del sistema.</param>
+    </member>
+    <member name="M:System.DataMisalignedException.#ctor(System.String,System.Exception)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.DataMisalignedException" /> utilizzando il messaggio di errore specificato e l'eccezione sottostante.</summary>
+      <param name="message">Oggetto <see cref="T:System.String" /> che descrive l'errore.Il contenuto di <paramref name="message" /> deve essere facilmente comprensibile.È necessario che il chiamante del costruttore assicuri che la stringa sia stata localizzata per le impostazioni cultura correnti del sistema.</param>
+      <param name="innerException">Eccezione che è la causa della generazione dell'oggetto <see cref="T:System.DataMisalignedException" /> corrente.Se il parametro <paramref name="innerException" /> non è null, l'eccezione corrente viene generata in un blocco catch in cui viene gestita l'eccezione interna.</param>
+    </member>
+    <member name="T:System.DllNotFoundException">
+      <summary>Eccezione che viene generata quando non è possibile individuare un file DLL specificato in un'importazione di file DLL.</summary>
+      <filterpriority>2</filterpriority>
+    </member>
+    <member name="M:System.DllNotFoundException.#ctor">
+      <summary>Consente l'inizializzazione di una nuova istanza della classe <see cref="T:System.DllNotFoundException" /> con le proprietà predefinite.</summary>
+    </member>
+    <member name="M:System.DllNotFoundException.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.DllNotFoundException" /> con un messaggio di errore specificato.</summary>
+      <param name="message">Messaggio di errore nel quale viene indicato il motivo dell’eccezione </param>
+    </member>
+    <member name="M:System.DllNotFoundException.#ctor(System.String,System.Exception)">
+      <summary>Consente l'inizializzazione di una nuova istanza della classe <see cref="T:System.DllNotFoundException" /> con un messaggio di errore specificato e un riferimento all'eccezione interna che è la causa dell'eccezione corrente.</summary>
+      <param name="message">Messaggio di errore nel quale viene indicato il motivo dell’eccezione </param>
+      <param name="inner">Eccezione causa dell'eccezione corrente.Se il parametro <paramref name="inner" /> non è null, l'eccezione corrente verrà generata in un blocco catch che gestisce l'eccezione interna.</param>
+    </member>
+    <member name="T:System.Reflection.Missing">
+      <summary>Rappresenta un oggetto <see cref="T:System.Object" /> mancante.La classe non può essere ereditata.</summary>
+    </member>
+    <member name="F:System.Reflection.Missing.Value">
+      <summary>Rappresenta l'unica istanza della classe <see cref="T:System.Reflection.Missing" />.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ArrayWithOffset">
+      <summary>Incapsula una matrice e un offset all'interno della matrice specificata.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ArrayWithOffset.#ctor(System.Object,System.Int32)">
+      <summary>Inizializza una nuova istanza della struttura <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" />.</summary>
+      <param name="array">Matrice gestita. </param>
+      <param name="offset">Offset in byte dell'elemento da passare mediante chiamata alla piattaforma. </param>
+      <exception cref="T:System.ArgumentException">La matrice è maggiore di 2 GB.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ArrayWithOffset.Equals(System.Object)">
+      <summary>Indica se l'oggetto specificato corrisponde alla struttura <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> corrente.</summary>
+      <returns>true se l'oggetto corrisponde a questa struttura <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" />; in caso contrario, false.</returns>
+      <param name="obj">Oggetto da confrontare con questa istanza. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ArrayWithOffset.Equals(System.Runtime.InteropServices.ArrayWithOffset)">
+      <summary>Indica se l'oggetto specificato <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> corrisponde all'istanza corrente.</summary>
+      <returns>true se l’oggetto specificato <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" />corrisponde all'istanza corrente; in caso contrario false.</returns>
+      <param name="obj">Oggetto <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> da confrontare con questa istanza.</param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ArrayWithOffset.GetArray">
+      <summary>Restituisce la matrice gestita cui questa struttura <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> fa riferimento.</summary>
+      <returns>Matrice gestita cui questa istanza fa riferimento.</returns>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ArrayWithOffset.GetHashCode">
+      <summary>Restituisce un codice hash per questo tipo di valore.</summary>
+      <returns>Codice hash per l'istanza.</returns>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ArrayWithOffset.GetOffset">
+      <summary>Restituisce l'offset fornito al momento della costruzione di questa struttura <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" />.</summary>
+      <returns>Offset per questa istanza.</returns>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ArrayWithOffset.op_Equality(System.Runtime.InteropServices.ArrayWithOffset,System.Runtime.InteropServices.ArrayWithOffset)">
+      <summary>Determina se due oggetti <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> specificati hanno lo stesso valore.</summary>
+      <returns>true se il valore del parametro <paramref name="a" /> è uguale al valore del parametro <paramref name="b" />; in caso contrario, false.</returns>
+      <param name="a">Oggetto <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> da confrontare con il parametro <paramref name="b" />. </param>
+      <param name="b">Oggetto <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> da confrontare con il parametro <paramref name="a" />.</param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ArrayWithOffset.op_Inequality(System.Runtime.InteropServices.ArrayWithOffset,System.Runtime.InteropServices.ArrayWithOffset)">
+      <summary>Determina se due oggetti <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> specificati non hanno lo stesso valore.</summary>
+      <returns>true se il valore di <paramref name="a" /> non è uguale al valore di <paramref name="b" />; in caso contrario, false.</returns>
+      <param name="a">Oggetto <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> da confrontare con il parametro <paramref name="b" />. </param>
+      <param name="b">Oggetto <see cref="T:System.Runtime.InteropServices.ArrayWithOffset" /> da confrontare con il parametro <paramref name="a" />.</param>
+    </member>
+    <member name="T:System.Runtime.InteropServices.BestFitMappingAttribute">
+      <summary>Controlla se i caratteri Unicode vengono convertiti nei caratteri ANSI che più si avvicinano ad essi.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.BestFitMappingAttribute.#ctor(System.Boolean)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.BestFitMappingAttribute" /> impostata sul valore della proprietà <see cref="P:System.Runtime.InteropServices.BestFitMappingAttribute.BestFitMapping" />.</summary>
+      <param name="BestFitMapping">true per indicare che è abilitato il mapping più appropriato; in caso contrario, false.Il valore predefinito è true.</param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.BestFitMappingAttribute.BestFitMapping">
+      <summary>Ottiene il comportamento di mapping più appropriato quando si convertono i caratteri Unicode in caratteri ANSI.</summary>
+      <returns>true se è attivato il mapping più appropriato; in caso contrario, false.Il valore predefinito è true.</returns>
+    </member>
+    <member name="F:System.Runtime.InteropServices.BestFitMappingAttribute.ThrowOnUnmappableChar">
+      <summary>Abilita o disabilita la generazione di un'eccezione su un carattere Unicode di cui non è possibile eseguire il mapping convertito in un carattere ANSI "?".</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.BStrWrapper">
+      <summary>Esegue il marshalling dei dati di tipo VT_BSTR dal codice gestito al codice non gestito.La classe non può essere ereditata.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.BStrWrapper.#ctor(System.Object)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.BStrWrapper" /> con l'oggetto <see cref="T:System.Object" /> specificato.</summary>
+      <param name="value">Oggetto da includere e sottoporre a marshalling come VT_BSTR.</param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.BStrWrapper.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.BStrWrapper" /> con l'oggetto <see cref="T:System.String" /> specificato.</summary>
+      <param name="value">Oggetto da includere e sottoporre a marshalling come VT_BSTR.</param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.BStrWrapper.WrappedObject">
+      <summary>Ottiene l'oggetto <see cref="T:System.String" /> incluso da sottoporre a marshalling come tipo VT_BSTR.</summary>
+      <returns>Oggetto di cui è stato eseguito il wrapping da <see cref="T:System.Runtime.InteropServices.BStrWrapper" />.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.CallingConvention">
+      <summary>Specifica la convenzione di chiamata necessaria per chiamare i metodi implementati nel codice non gestito.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CallingConvention.Cdecl">
+      <summary>Il chiamante esegue la pulizia dello stack.Questa operazione attiva funzioni chiamanti con varargs, pertanto può essere utilizzata per metodi che accettano un numero variabile di parametri, ad esempio Printf.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CallingConvention.StdCall">
+      <summary>Il chiamato esegue la pulizia dello stack.Si tratta della convenzione predefinita per chiamare funzioni non gestite tramite platform invoke.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CallingConvention.ThisCall">
+      <summary>Il primo parametro è il puntatore this ed è archiviato in ECX del Registro di sistema.Altri parametri vengono inseriti nello stack.Questa convenzione di chiamata viene utilizzata per chiamare metodi su classi esportate da una DLL non gestita.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CallingConvention.Winapi">
+      <summary>In realtà il membro non è una convenzione di chiamata, ma utilizza la convenzione di chiamata predefinita di platform invoke.In Windows, ad esempio, l'impostazione predefinita è <see cref="F:System.Runtime.InteropServices.CallingConvention.StdCall" />, mentre in Windows CE .NET è <see cref="F:System.Runtime.InteropServices.CallingConvention.Cdecl" />.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ClassInterfaceAttribute">
+      <summary>Indica il tipo di interfaccia di classe da generare per una classe esposta a COM, se viene generata un'interfaccia.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ClassInterfaceAttribute.#ctor(System.Int16)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ClassInterfaceAttribute" /> con il valore di enumerazione <see cref="T:System.Runtime.InteropServices.ClassInterfaceType" /> specificato.</summary>
+      <param name="classInterfaceType">Descrive il tipo di interfaccia generata per una classe. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ClassInterfaceAttribute.#ctor(System.Runtime.InteropServices.ClassInterfaceType)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ClassInterfaceAttribute" /> con il membro di enumerazione <see cref="T:System.Runtime.InteropServices.ClassInterfaceType" /> specificato.</summary>
+      <param name="classInterfaceType">Uno dei valori <see cref="T:System.Runtime.InteropServices.ClassInterfaceType" /> che descrive il tipo di interfaccia generato per una classe. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ClassInterfaceAttribute.Value">
+      <summary>Ottiene il valore <see cref="T:System.Runtime.InteropServices.ClassInterfaceType" /> che descrive il tipo di interfaccia che deve essere generato per la classe.</summary>
+      <returns>Valore <see cref="T:System.Runtime.InteropServices.ClassInterfaceType" /> che descrive il tipo di interfaccia che deve essere generato per la classe.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ClassInterfaceType">
+      <summary>Identifica il tipo di interfaccia di classe generata per una classe.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ClassInterfaceType.AutoDispatch">
+      <summary>Indica che la classe supporta solo l'associazione tardiva dei client COM.Una dispinterface per la classe viene esposta automaticamente ai client COM su richiesta.La libreria dei tipi prodotta da Tlbexp.exe (utilità di esportazione della libreria dei tipi) non contiene informazioni sui tipi per la dispinterface allo scopo di impedire ai client di memorizzare nella cache i DISPID dell'interfaccia.La dispinterface non mostra i problemi di controllo delle versioni descritti in <see cref="T:System.Runtime.InteropServices.ClassInterfaceAttribute" /> perché i client possono eseguire soltanto l'associazione tardiva all'interfaccia.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ClassInterfaceType.AutoDual">
+      <summary>Indica che un'interfaccia di classe duale viene generata automaticamente per la classe ed esposta a COM.Le informazioni sul tipo sono prodotte per l'interfaccia di classe e pubblicate nella libreria dei tipi.L'utilizzo di AutoDual è fortemente sconsigliato a causa delle limitazioni nel controllo delle versioni descritte in <see cref="T:System.Runtime.InteropServices.ClassInterfaceAttribute" />.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ClassInterfaceType.None">
+      <summary>Indica che per la classe non viene generata alcuna interfaccia di classe.Se nessuna interfaccia viene implementata in modo esplicito, la classe può fornire solo accesso ad associazione tardiva tramite l'interfaccia IDispatch.Si tratta dell'impostazione consigliata per <see cref="T:System.Runtime.InteropServices.ClassInterfaceAttribute" />.L'utilizzo di ClassInterfaceType.None è l'unico modo per l'esporre la funzionalità tramite interfacce implementate in modo esplicito dalla classe.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.CoClassAttribute">
+      <summary>Specifica l'identificatore di classe di una coclasse importata da una libreria dei tipi.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.CoClassAttribute.#ctor(System.Type)">
+      <summary>Inizializza la nuova istanza di <see cref="T:System.Runtime.InteropServices.CoClassAttribute" /> con l'ID di classe della coclasse originale.</summary>
+      <param name="coClass">Oggetto <see cref="T:System.Type" /> che contiene l'identificatore di classe della coclasse originale. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.CoClassAttribute.CoClass">
+      <summary>Ottiene l'identificatore di classe della coclasse originale.</summary>
+      <returns>Oggetto <see cref="T:System.Type" /> che contiene l'identificatore di classe della coclasse originale.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ComAwareEventInfo">
+      <summary>Consente la registrazione ad associazione tardiva di un gestore dell'evento.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComAwareEventInfo.#ctor(System.Type,System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ComAwareEventInfo" /> utilizzando il tipo specificato e un nome dell'evento nel tipo.</summary>
+      <param name="type">Tipo di oggetto. </param>
+      <param name="eventName">Nome di un evento in <paramref name="type" />.</param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComAwareEventInfo.AddEventHandler(System.Object,System.Delegate)">
+      <summary>Associa un gestore dell'evento a un oggetto COM.</summary>
+      <param name="target">Oggetto di destinazione al quale deve essere associato il delegato dell'evento.</param>
+      <param name="handler">Delegato dell'evento.</param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ComAwareEventInfo.Attributes">
+      <summary>Ottiene gli attributi per questo evento.</summary>
+      <returns>Attributi di sola lettura per questo evento.</returns>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ComAwareEventInfo.DeclaringType">
+      <summary>Ottiene la classe che dichiara questo membro.</summary>
+      <returns>Oggetto <see cref="T:System.Type" /> per la classe che dichiara questo membro.</returns>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ComAwareEventInfo.Name">
+      <summary>Ottiene il nome del membro corrente.</summary>
+      <returns>Nome del membro.</returns>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComAwareEventInfo.RemoveEventHandler(System.Object,System.Delegate)">
+      <summary>Dissocia un gestore dell'evento da un oggetto COM.</summary>
+      <param name="target">Oggetto di destinazione al quale è associato il delegato dell'evento.</param>
+      <param name="handler">Delegato dell'evento.</param>
+      <exception cref="T:System.InvalidOperationException">L'evento non dispone di una funzione di accesso remove pubblica.</exception>
+      <exception cref="T:System.ArgumentException">Non è possibile utilizzare il gestore che è stato passato.</exception>
+      <exception cref="T:System.Reflection.TargetException">Nell'API.NET per le applicazioni Windows o nella Libreria di classi portabile, rilevare piuttosto <see cref="T:System.Exception" />.Il parametro <paramref name="target" /> non è null e l'evento non è static.- oppure - L'oggetto <see cref="T:System.Reflection.EventInfo" /> non è dichiarato nella destinazione.</exception>
+      <exception cref="T:System.MethodAccessException">Nell'API.NET per le applicazioni Windows o nella Libreria di classi portabile, rilevare piuttosto l'eccezione della classe di base <see cref="T:System.MemberAccessException" />.Il chiamante non dispone dell'autorizzazione per accedere al membro.</exception>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ComDefaultInterfaceAttribute">
+      <summary>Specifica un'interfaccia predefinita da esporre a COM.La classe non può essere ereditata.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComDefaultInterfaceAttribute.#ctor(System.Type)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ComDefaultInterfaceAttribute" /> con l'oggetto <see cref="T:System.Type" /> specificato come interfaccia predefinita esposta a COM.</summary>
+      <param name="defaultInterface">Valore <see cref="T:System.Type" /> che indica l'interfaccia predefinita da esporre a COM. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ComDefaultInterfaceAttribute.Value">
+      <summary>Ottiene l'oggetto <see cref="T:System.Type" /> che specifica l'interfaccia predefinita da esporre a COM.</summary>
+      <returns>Oggetto <see cref="T:System.Type" /> che specifica l'interfaccia predefinita da esporre a COM.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ComEventInterfaceAttribute">
+      <summary>Identifica l'interfaccia di origine e la classe che implementa i metodi dell'interfaccia eventi che viene generata in caso di importazione di una coclasse da una libreria dei tipi COM.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComEventInterfaceAttribute.#ctor(System.Type,System.Type)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ComEventInterfaceAttribute" /> con la classe dell'interfaccia di origine e del provider di eventi.</summary>
+      <param name="SourceInterface">
+        <see cref="T:System.Type" /> che contiene l'originale interfaccia di origine della libreria dei tipi.COM utilizza questa interfaccia per richiamare la classe gestita.</param>
+      <param name="EventProvider">
+        <see cref="T:System.Type" /> che contiene la classe che implementa i metodi dell'interfaccia eventi. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ComEventInterfaceAttribute.EventProvider">
+      <summary>Ottiene la classe che implementa i metodi dell'interfaccia eventi.</summary>
+      <returns>
+        <see cref="T:System.Type" /> che contiene la classe che implementa i metodi dell'interfaccia eventi.</returns>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ComEventInterfaceAttribute.SourceInterface">
+      <summary>Ottiene l'originale interfaccia di origine dalla libreria dei tipi.</summary>
+      <returns>
+        <see cref="T:System.Type" /> contenente l'interfaccia di origine.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ComEventsHelper">
+      <summary>Fornisce metodi che consentono a .NET Framework di delegare gli eventi di handle da aggiungere e rimuovere dagli oggetti COM.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComEventsHelper.Combine(System.Object,System.Guid,System.Int32,System.Delegate)">
+      <summary>Aggiunge un delegato all'elenco chiamate di eventi che provengono da un oggetto COM.</summary>
+      <param name="rcw">Oggetto COM che lancia gli eventi ai quali il chiamante vorrebbe rispondere.</param>
+      <param name="iid">Identificatore dell'interfaccia di origine utilizzata dall'oggetto COM per lanciare gli eventi. </param>
+      <param name="dispid">Identificatore di invio del metodo sull'interfaccia di origine.</param>
+      <param name="d">Delegato da richiamare al lancio dell'evento COM.</param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComEventsHelper.Remove(System.Object,System.Guid,System.Int32,System.Delegate)">
+      <summary>Rimuove un delegato dall'elenco chiamate di un evento generato da un oggetto COM.</summary>
+      <returns>Delegato rimosso dall'elenco delle chiamate.</returns>
+      <param name="rcw">Oggetto COM a cui il delegato è associato.</param>
+      <param name="iid">Identificatore dell'interfaccia di origine utilizzata dall'oggetto COM per lanciare gli eventi. </param>
+      <param name="dispid">Identificatore di invio del metodo sull'interfaccia di origine.</param>
+      <param name="d">Delegato da rimuovere dall'elenco delle chiamate.</param>
+    </member>
+    <member name="T:System.Runtime.InteropServices.COMException">
+      <summary>Eccezione generata quando un valore HRESULT non riconosciuto viene restituito da una chiamata al metodo COM.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.COMException.#ctor">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.COMException" /> con valori predefiniti.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.COMException.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.COMException" /> con un messaggio specificato.</summary>
+      <param name="message">Messaggio che indica la causa dell'eccezione. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.COMException.#ctor(System.String,System.Exception)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.COMException" /> con un messaggio di errore specificato e un riferimento all'eccezione interna che è la causa dell'eccezione.</summary>
+      <param name="message">Messaggio di errore nel quale viene indicato il motivo dell’eccezione </param>
+      <param name="inner">Eccezione causa dell'eccezione corrente.Se il parametro <paramref name="inner" /> non è null, l'eccezione corrente verrà generata in un blocco catch che gestisce l'eccezione interna.</param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.COMException.#ctor(System.String,System.Int32)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.COMException" /> con un messaggio e il codice di errore specificati.</summary>
+      <param name="message">Messaggio che indica il motivo per il quale è stata generata l'eccezione. </param>
+      <param name="errorCode">Valore del codice di errore (HRESULT) associato a questa eccezione. </param>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ComImportAttribute">
+      <summary>Indica che il tipo con attributi è già stato definito in COM.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComImportAttribute.#ctor">
+      <summary>Inizializza una nuova istanza di <see cref="T:System.Runtime.InteropServices.ComImportAttribute" />.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ComInterfaceType">
+      <summary>Identifica come esporre un'interfaccia a COM.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ComInterfaceType.InterfaceIsDual">
+      <summary>Indica che l'interfaccia è esposta a COM come un'interfaccia duale, ovvero un'interfaccia che consente sia l'associazione anticipata sia l'associazione tardiva.Il valore predefinito è <see cref="F:System.Runtime.InteropServices.ComInterfaceType.InterfaceIsDual" />.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIDispatch">
+      <summary>Indica che un'interfaccia viene esposta a COM come interfaccia di tipo dispatch, che consente solo l'associazione tardiva.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable">
+      <summary>Indica che un'interfaccia viene esposta a COM come interfaccia di Windows Runtime. </summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown">
+      <summary>Indica che un'interfaccia è esposta a COM come una interfaccia derivata da IUnknown, che consente solo l'associazione anticipata.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ComMemberType">
+      <summary>Descrive il tipo di un membro COM.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ComMemberType.Method">
+      <summary>Il membro è un metodo normale.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ComMemberType.PropGet">
+      <summary>Il membro ottiene le proprietà.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.ComMemberType.PropSet">
+      <summary>Il membro imposta le proprietà.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ComSourceInterfacesAttribute">
+      <summary>Identifica un elenco di interfacce esposte come origini eventi COM per la classe con attributi.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComSourceInterfacesAttribute.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ComSourceInterfacesAttribute" /> con il nome dell'interfaccia di origine eventi.</summary>
+      <param name="sourceInterfaces">Elenco delimitato da valori null di nomi completi di interfacce di origine eventi. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComSourceInterfacesAttribute.#ctor(System.Type)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ComSourceInterfacesAttribute" /> con il tipo da utilizzare come interfaccia di origine.</summary>
+      <param name="sourceInterface">Tipo <see cref="T:System.Type" /> dell'interfaccia di origine. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComSourceInterfacesAttribute.#ctor(System.Type,System.Type)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ComSourceInterfacesAttribute" /> con i tipi da utilizzare come interfacce di origine.</summary>
+      <param name="sourceInterface1">Tipo <see cref="T:System.Type" /> dell'interfaccia di origine predefinita. </param>
+      <param name="sourceInterface2">Tipo <see cref="T:System.Type" /> di un'interfaccia di origine. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComSourceInterfacesAttribute.#ctor(System.Type,System.Type,System.Type)">
+      <summary>Inizializza una nuova istanza della classe ComSourceInterfacesAttribute con i tipi da utilizzare come interfacce di origine.</summary>
+      <param name="sourceInterface1">Tipo <see cref="T:System.Type" /> dell'interfaccia di origine predefinita. </param>
+      <param name="sourceInterface2">Tipo <see cref="T:System.Type" /> di un'interfaccia di origine. </param>
+      <param name="sourceInterface3">Tipo <see cref="T:System.Type" /> di un'interfaccia di origine. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ComSourceInterfacesAttribute.#ctor(System.Type,System.Type,System.Type,System.Type)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ComSourceInterfacesAttribute" /> con i tipi da utilizzare come interfacce di origine.</summary>
+      <param name="sourceInterface1">Tipo <see cref="T:System.Type" /> dell'interfaccia di origine predefinita. </param>
+      <param name="sourceInterface2">Tipo <see cref="T:System.Type" /> di un'interfaccia di origine. </param>
+      <param name="sourceInterface3">Tipo <see cref="T:System.Type" /> di un'interfaccia di origine. </param>
+      <param name="sourceInterface4">Tipo <see cref="T:System.Type" /> di un'interfaccia di origine. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ComSourceInterfacesAttribute.Value">
+      <summary>Ottiene il nome completo dell'interfaccia di origine eventi.</summary>
+      <returns>Nome completo dell'interfaccia di origine eventi.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.CurrencyWrapper">
+      <summary>Esegue il wrapping degli oggetti di cui il gestore di marshalling deve eseguire il marshalling come VT_CY.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.CurrencyWrapper.#ctor(System.Decimal)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.CurrencyWrapper" /> con il valore Decimal di cui eseguire il wrapping e da trasformare e sottoporre a marshalling come tipo VT_CY.</summary>
+      <param name="obj">Valore Decimal di cui eseguire il wrapping e da sottoporre a marshalling come VT_CY. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.CurrencyWrapper.#ctor(System.Object)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.CurrencyWrapper" /> con l'oggetto contenente il valore Decimal di cui eseguire il wrapping e da sottoporre a marshalling come tipo VT_CY.</summary>
+      <param name="obj">Oggetto contenente il valore Decimal di cui eseguire il wrapping e da sottoporre a marshalling come VT_CY. </param>
+      <exception cref="T:System.ArgumentException">Il parametro <paramref name="obj" /> non è di tipo <see cref="T:System.Decimal" />.</exception>
+    </member>
+    <member name="P:System.Runtime.InteropServices.CurrencyWrapper.WrappedObject">
+      <summary>Ottiene l'oggetto di cui è stato eseguito il wrapping, da sottoporre a marshalling come tipo VT_CY.</summary>
+      <returns>Oggetto di cui è stato eseguito il wrapping, da sottoporre a marshalling come tipo VT_CY.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.CustomQueryInterfaceMode">
+      <summary>Indica se le chiamate al metodo <see cref="M:System.Runtime.InteropServices.Marshal.GetComInterfaceForObject(System.Object,System.Type,System.Runtime.InteropServices.CustomQueryInterfaceMode)" /> di tipo IUnknown::QueryInterface possono utilizzare l'interfaccia <see cref="T:System.Runtime.InteropServices.ICustomQueryInterface" />.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CustomQueryInterfaceMode.Allow">
+      <summary>Le chiamate del metodo IUnknown::QueryInterface possono utilizare l'interfaccia <see cref="T:System.Runtime.InteropServices.ICustomQueryInterface" />.Quando si utilizza questo valore, le funzioni di overload del metodo <see cref="M:System.Runtime.InteropServices.Marshal.GetComInterfaceForObject(System.Object,System.Type,System.Runtime.InteropServices.CustomQueryInterfaceMode)" /> preferiscono l'overload <see cref="M:System.Runtime.InteropServices.Marshal.GetComInterfaceForObject(System.Object,System.Type)" />.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CustomQueryInterfaceMode.Ignore">
+      <summary>Le chiamate del metodo IUnknown::QueryInterface dovrebbero ignorare l'interfaccia <see cref="T:System.Runtime.InteropServices.ICustomQueryInterface" />.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.CustomQueryInterfaceResult">
+      <summary>Fornisce i valori restituiti dal metodo <see cref="M:System.Runtime.InteropServices.ICustomQueryInterface.GetInterface(System.Guid@,System.IntPtr@)" />.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CustomQueryInterfaceResult.Failed">
+      <summary>L'interfaccia per un ID di interfaccia specifico non è disponibile.In questo caso l'interfaccia restituita è null.E_NOINTERFACE viene restituito al chiamante di IUnknown::QueryInterface.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CustomQueryInterfaceResult.Handled">
+      <summary>Il puntatore a interfaccia restituito dal metodo <see cref="M:System.Runtime.InteropServices.ICustomQueryInterface.GetInterface(System.Guid@,System.IntPtr@)" /> può essere utilizzato come risultato di IUnknown::QueryInterface.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.CustomQueryInterfaceResult.NotHandled">
+      <summary>La QueryInterface personalizzata non è stata utilizzata.Al contrario, deve essere utilizzata l'implementazione predefinita di IUnknown::QueryInterface.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.DefaultCharSetAttribute">
+      <summary>Specifica il valore dell'enumerazione <see cref="T:System.Runtime.InteropServices.CharSet" />.La classe non può essere ereditata.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.DefaultCharSetAttribute.#ctor(System.Runtime.InteropServices.CharSet)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.DefaultCharSetAttribute" /> con il valore <see cref="T:System.Runtime.InteropServices.CharSet" /> specificato.</summary>
+      <param name="charSet">Uno dei valori <see cref="T:System.Runtime.InteropServices.CharSet" />.</param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.DefaultCharSetAttribute.CharSet">
+      <summary>Ottiene il valore predefinito <see cref="T:System.Runtime.InteropServices.CharSet" /> per qualsiasi chiamata a <see cref="T:System.Runtime.InteropServices.DllImportAttribute" />.</summary>
+      <returns>Valore predefinito <see cref="T:System.Runtime.InteropServices.CharSet" /> per qualsiasi chiamata a <see cref="T:System.Runtime.InteropServices.DllImportAttribute" />.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.DefaultDllImportSearchPathsAttribute">
+      <summary>Specifica i percorsi utilizzati per individuare le DLL che forniscono le funzioni per i platform invoke. </summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.DefaultDllImportSearchPathsAttribute.#ctor(System.Runtime.InteropServices.DllImportSearchPath)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.DefaultDllImportSearchPathsAttribute" />, specificando i percorsi da utilizzare nella ricerca delle destinazioni di platform invoke. </summary>
+      <param name="paths">Combinazione bit per bit dei valori di enumerazione che specificano i percorsi di ricerca che la funzione LoadLibraryEx ricerca durante i pInvoke. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.DefaultDllImportSearchPathsAttribute.Paths">
+      <summary>Ottiene una combinazione bit per bit dei valori di enumerazione che specificano i percorsi in cui la funzione LoadLibraryEx effettua la ricerca durante le chiamate di pInvoke. </summary>
+      <returns>Combinazione bit per bit dei valori di enumerazione che specificano i pInvoke. </returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.DefaultParameterValueAttribute">
+      <summary>Imposta il valore predefinito di un parametro se chiamato da un linguaggio che supporta i parametri predefiniti.La classe non può essere ereditata.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.DefaultParameterValueAttribute.#ctor(System.Object)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.DefaultParameterValueAttribute" /> con il valore predefinito di un parametro.</summary>
+      <param name="value">Oggetto che rappresenta il valore predefinito di un parametro.</param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.DefaultParameterValueAttribute.Value">
+      <summary>Ottiene il valore predefinito di un parametro.</summary>
+      <returns>Oggetto che rappresenta il valore predefinito di un parametro.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.DispatchWrapper">
+      <summary>Esegue il wrapping degli oggetti di cui il gestore di marshalling deve eseguire il marshalling come VT_DISPATCH.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.DispatchWrapper.#ctor(System.Object)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.DispatchWrapper" /> con l'oggetto di cui è stato eseguito il wrapping.</summary>
+      <param name="obj">L'oggetto di cui è stato eseguito il wrapping e convertire in <see cref="F:System.Runtime.InteropServices.VarEnum.VT_DISPATCH" />. </param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="obj" /> non è una classe né una matrice.In alternativa <paramref name="obj" /> non supporta IDispatch. </exception>
+      <exception cref="T:System.InvalidOperationException">Il parametro <paramref name="obj" /> è contrassegnato con un attributo <see cref="T:System.Runtime.InteropServices.ComVisibleAttribute" /> al quale è stato passato il valore false.In alternativaIl parametro <paramref name="obj" /> eredita da un tipo contrassegnato con un attributo <see cref="T:System.Runtime.InteropServices.ComVisibleAttribute" /> al quale è stato passato il valore false.</exception>
+    </member>
+    <member name="P:System.Runtime.InteropServices.DispatchWrapper.WrappedObject">
+      <summary>Ottiene l'oggetto di cui è stato eseguito il wrapping da <see cref="T:System.Runtime.InteropServices.DispatchWrapper" />.</summary>
+      <returns>L'oggetto di cui è stato eseguito il wrapping da <see cref="T:System.Runtime.InteropServices.DispatchWrapper" />.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.DispIdAttribute">
+      <summary>Specifica l'ID di invio (o DISPID) COM di un metodo, campo o proprietà.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.DispIdAttribute.#ctor(System.Int32)">
+      <summary>Inizializza una nuova istanza della classe DispIdAttribute con il DISPID specificato.</summary>
+      <param name="dispId">DISPID del membro. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.DispIdAttribute.Value">
+      <summary>Ottiene il DISPID del membro.</summary>
+      <returns>DISPID del membro.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.DllImportAttribute">
+      <summary>Indica che il metodo con attributi viene esposto da una libreria a collegamento dinamico (DLL) non gestita come punto di ingresso statico.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.DllImportAttribute.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.DllImportAttribute" /> con il nome della DLL che contiene il metodo da importare.</summary>
+      <param name="dllName">Nome della DLL che contiene il metodo non gestito.Può includere il nome visualizzato di un assembly, se la DLL è inclusa in un assembly.</param>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportAttribute.BestFitMapping">
+      <summary>Abilita o disabilita il comportamento di mapping più appropriato per la conversione di caratteri Unicode in caratteri ANSI.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportAttribute.CallingConvention">
+      <summary>Indica la convenzione di chiamata di un punto di ingresso.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportAttribute.CharSet">
+      <summary>Indica come eseguire il marshalling dei parametri di stringa nel metodo e controlla l'alterazione dei nomi.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportAttribute.EntryPoint">
+      <summary>Indica il nome o l'ordinale del punto di ingresso DLL da chiamare.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportAttribute.ExactSpelling">
+      <summary>Controlla se il campo <see cref="F:System.Runtime.InteropServices.DllImportAttribute.CharSet" /> fa in modo che Common Language Runtime cerchi in una DLL non gestita i nomi dei punti di ingresso diversi da quello specificato.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportAttribute.PreserveSig">
+      <summary>Indica se i metodi non gestiti con valore restituito HRESULT o retval vengono convertiti direttamente o se il valore restituito HRESULT o retval viene convertito automaticamente in eccezioni.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportAttribute.SetLastError">
+      <summary>Indica se il destinatario della chiamata chiama la funzione API Win32 SetLastError prima della restituzione di un risultato dal metodo con attributi.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportAttribute.ThrowOnUnmappableChar">
+      <summary>Abilita o disabilita la generazione di un'eccezione su un carattere Unicode di cui non è possibile eseguire il mapping convertito in un carattere ANSI "?".</summary>
+    </member>
+    <member name="P:System.Runtime.InteropServices.DllImportAttribute.Value">
+      <summary>Ottiene il nome del file DLL che contiene il punto di ingresso.</summary>
+      <returns>Nome del file DLL che contiene il punto di ingresso.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.DllImportSearchPath">
+      <summary>Specifica i percorsi utilizzati per individuare le DLL che forniscono le funzioni per i platform invoke. </summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportSearchPath.ApplicationDirectory">
+      <summary>Includere la directory dell'applicazione nel percorso di ricerca della DLL. </summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportSearchPath.AssemblyDirectory">
+      <summary>Una volta cercate le dipendenze dell'assembly, includere la directory contenente l'assembly stesso e cercare tale directory per prima.Questo valore viene utilizzato da .NET Framework, prima che i percorsi vengano passati alla funzione LoadLibraryEx di Win32.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportSearchPath.LegacyBehavior">
+      <summary>Effettuare la ricerca nella directory dell'applicazione, quindi chiamare la funzione Win32 LoadLibraryEx con il flag LOAD_WITH_ALTERED_SEARCH_PATH.Questo valore viene ignorato se viene specificato qualsiasi altro valore.I sistemi operativi che non supportano l'attributo <see cref="T:System.Runtime.InteropServices.DefaultDllImportSearchPathsAttribute" /> utilizzano questo valore e ignorano gli altri valori.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportSearchPath.SafeDirectories">
+      <summary>Includere la directory dell'applicazione, la directory %WinDir%\System32, e le directory utente nel percorso di ricerca della DLL. </summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportSearchPath.System32">
+      <summary>Includere la directory %WinDir%\System32 nel percorso di ricerca della DLL. </summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportSearchPath.UseDllDirectoryForDependencies">
+      <summary>Cercare le dipendenze di una DLL nella cartella in cui si trova la DLL prima di cercare in altre cartelle. </summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.DllImportSearchPath.UserDirectories">
+      <summary>Includere qualsiasi percorso aggiunto in modo esplicito al percorso di ricerca a livello di processo utilizzando la funzione AddDllDirectory Win32. </summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ErrorWrapper">
+      <summary>Esegue il wrapping degli oggetti di cui il gestore di marshalling deve eseguire il marshalling come VT_ERROR.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ErrorWrapper.#ctor(System.Exception)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ErrorWrapper" /> con il valore HRESULT che corrisponde all'eccezione fornita.</summary>
+      <param name="e">L'eccezione da convertire in codice di errore. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ErrorWrapper.#ctor(System.Int32)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ErrorWrapper" /> con il valore HRESULT dell'errore.</summary>
+      <param name="errorCode">Valore HRESULT dell'errore. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ErrorWrapper.#ctor(System.Object)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.ErrorWrapper" /> con un oggetto contenente il valore HRESULT dell'errore.</summary>
+      <param name="errorCode">L'oggetto contenente il valore HRESULT dell'errore. </param>
+      <exception cref="T:System.ArgumentException">Il parametro <paramref name="errorCode" /> non è di tipo <see cref="T:System.Int32" />.</exception>
+    </member>
+    <member name="P:System.Runtime.InteropServices.ErrorWrapper.ErrorCode">
+      <summary>Ottiene il codice di errore del wrapper.</summary>
+      <returns>Valore HRESULT dell'errore.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.GCHandle">
+      <summary>Fornisce un modo per accedere a un oggetto gestito da una memoria non gestita.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.AddrOfPinnedObject">
+      <summary>Recupera l'indirizzo di un oggetto in un handle <see cref="F:System.Runtime.InteropServices.GCHandleType.Pinned" />.</summary>
+      <returns>Indirizzo dell'oggetto bloccato come <see cref="T:System.IntPtr" />. </returns>
+      <exception cref="T:System.InvalidOperationException">The handle is any type other than <see cref="F:System.Runtime.InteropServices.GCHandleType.Pinned" />. </exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.Alloc(System.Object)">
+      <summary>Alloca un handle <see cref="F:System.Runtime.InteropServices.GCHandleType.Normal" /> per l'oggetto specificato.</summary>
+      <returns>Nuovo oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> che protegge l'oggetto dalla procedura di Garbage Collection.Questo oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> deve essere rilasciato con il metodo <see cref="M:System.Runtime.InteropServices.GCHandle.Free" /> quando non è più necessario.</returns>
+      <param name="value">Oggetto che usa <see cref="T:System.Runtime.InteropServices.GCHandle" />. </param>
+      <exception cref="T:System.ArgumentException">An instance with nonprimitive (non-blittable) members cannot be pinned. </exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.Alloc(System.Object,System.Runtime.InteropServices.GCHandleType)">
+      <summary>Alloca un handle del tipo specificato per l'oggetto specificato.</summary>
+      <returns>Nuovo oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> del tipo specificato.Questo oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> deve essere rilasciato con il metodo <see cref="M:System.Runtime.InteropServices.GCHandle.Free" /> quando non è più necessario.</returns>
+      <param name="value">Oggetto che usa <see cref="T:System.Runtime.InteropServices.GCHandle" />. </param>
+      <param name="type">Uno dei valori di <see cref="T:System.Runtime.InteropServices.GCHandleType" /> che indica il tipo di <see cref="T:System.Runtime.InteropServices.GCHandle" /> da creare. </param>
+      <exception cref="T:System.ArgumentException">An instance with nonprimitive (non-blittable) members cannot be pinned. </exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.Equals(System.Object)">
+      <summary>Determina se l'oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> specificato è uguale all'oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> corrente.</summary>
+      <returns>true se l'oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> specificato è uguale all'oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> corrente; in caso contrario, false.</returns>
+      <param name="o">Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> da confrontare con l'oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> corrente.</param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.Free">
+      <summary>Rilascia un oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" />.</summary>
+      <exception cref="T:System.InvalidOperationException">The handle was freed or never initialized. </exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.FromIntPtr(System.IntPtr)">
+      <summary>Restituisce un nuovo oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> creato da un handle per un oggetto gestito.</summary>
+      <returns>Nuovo oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> corrispondente al parametro del valore.  </returns>
+      <param name="value">Handle <see cref="T:System.IntPtr" /> per un oggetto gestito da cui creare un oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" />.</param>
+      <exception cref="T:System.InvalidOperationException">The value of the <paramref name="value" /> parameter is <see cref="F:System.IntPtr.Zero" />.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.GetHashCode">
+      <summary>Restituisce un identificatore per l'oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> corrente.</summary>
+      <returns>Identificatore per l'oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> corrente.</returns>
+    </member>
+    <member name="P:System.Runtime.InteropServices.GCHandle.IsAllocated">
+      <summary>Ottiene un valore che indica se l'handle è allocato.</summary>
+      <returns>true se l'handle è allocato; in caso contrario, false.</returns>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.op_Equality(System.Runtime.InteropServices.GCHandle,System.Runtime.InteropServices.GCHandle)">
+      <summary>Restituisce un valore che indica se due oggetti <see cref="T:System.Runtime.InteropServices.GCHandle" /> sono uguali.</summary>
+      <returns>true se i parametri <paramref name="a" /> e <paramref name="b" /> sono uguali; in caso contrario, false.</returns>
+      <param name="a">Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> da confrontare con il parametro <paramref name="b" />. </param>
+      <param name="b">Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> da confrontare con il parametro <paramref name="a" />.  </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.op_Explicit(System.IntPtr)~System.Runtime.InteropServices.GCHandle">
+      <summary>Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> archiviato usando una rappresentazione interna di interi.</summary>
+      <returns>Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> archiviato usando una rappresentazione interna di interi.</returns>
+      <param name="value">Oggetto <see cref="T:System.IntPtr" /> che indica l'handle per il quale è richiesta la conversione. </param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.op_Explicit(System.Runtime.InteropServices.GCHandle)~System.IntPtr">
+      <summary>Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> archiviato usando una rappresentazione interna di interi.</summary>
+      <returns>Valore intero.</returns>
+      <param name="value">Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> per il quale è necessario l'intero. </param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.op_Inequality(System.Runtime.InteropServices.GCHandle,System.Runtime.InteropServices.GCHandle)">
+      <summary>Restituisce un valore che indica se due oggetti <see cref="T:System.Runtime.InteropServices.GCHandle" /> non sono uguali.</summary>
+      <returns>true se i parametri <paramref name="a" /> e <paramref name="b" /> non sono uguali; in caso contrario, false.</returns>
+      <param name="a">Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> da confrontare con il parametro <paramref name="b" />. </param>
+      <param name="b">Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> da confrontare con il parametro <paramref name="a" />.  </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.GCHandle.Target">
+      <summary>Ottiene o imposta l'oggetto rappresentato da questo handle.</summary>
+      <returns>Oggetto rappresentato da questo handle.</returns>
+      <exception cref="T:System.InvalidOperationException">The handle was freed, or never initialized. </exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GCHandle.ToIntPtr(System.Runtime.InteropServices.GCHandle)">
+      <summary>Restituisce la rappresentazione interna di interi di un oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" />.</summary>
+      <returns>Oggetto <see cref="T:System.IntPtr" /> che rappresenta un oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" />. </returns>
+      <param name="value">Oggetto <see cref="T:System.Runtime.InteropServices.GCHandle" /> da cui recuperare una rappresentazione interna di interi.</param>
+    </member>
+    <member name="T:System.Runtime.InteropServices.GCHandleType">
+      <summary>Rappresenta i tipi di handle che la classe <see cref="T:System.Runtime.InteropServices.GCHandle" /> può allocare.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.GCHandleType.Normal">
+      <summary>Questo tipo di handle rappresenta un handle opaco, ovvero non è possibile risolvere l'indirizzo dell'oggetto bloccato tramite l'handle.È possibile utilizzare questo tipo per controllare un oggetto e impedire che sia sottoposto alla procedura di Garbage Collection.Questo membro di enumerazione è utile quando un client non gestito contiene l'unico riferimento, non rilevabile dalla procedura di Garbage Collection, a un oggetto gestito.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.GCHandleType.Pinned">
+      <summary>Questo tipo di handle è simile a <see cref="F:System.Runtime.InteropServices.GCHandleType.Normal" />, ma consente di recuperare l'indirizzo dell'oggetto bloccato.In questo modo si evita che l'oggetto venga spostato tramite la procedura di Garbage Collection, riducendo così l'efficienza della procedura stessa.Utilizzare il metodo <see cref="M:System.Runtime.InteropServices.GCHandle.Free" /> per liberare l'handle allocato non appena possibile.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.GCHandleType.Weak">
+      <summary>Questo tipo di handle è utilizzato per controllare un oggetto, sebbene consenta di raccoglierlo.Quando un oggetto viene raccolto, il contenuto di <see cref="T:System.Runtime.InteropServices.GCHandle" /> viene azzerato.I riferimenti Weak vengono azzerati prima dell'esecuzione del finalizzatore, in modo che, anche se il finalizzatore recupera l'oggetto, il riferimento Weak rimane ugualmente azzerato.</summary>
+    </member>
+    <member name="F:System.Runtime.InteropServices.GCHandleType.WeakTrackResurrection">
+      <summary>Questo tipo di handle è simile a <see cref="F:System.Runtime.InteropServices.GCHandleType.Weak" /> ma l'handle non viene azzerato se l'oggetto viene ripristinato durante la finalizzazione.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.GuidAttribute">
+      <summary>Fornisce un oggetto <see cref="T:System.Guid" /> esplicito quando un GUID automatico non è auspicabile.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.GuidAttribute.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.GuidAttribute" /> con il GUID specificato.</summary>
+      <param name="guid">Oggetto <see cref="T:System.Guid" /> da assegnare. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.GuidAttribute.Value">
+      <summary>Ottiene l'oggetto <see cref="T:System.Guid" /> della classe.</summary>
+      <returns>Oggetto <see cref="T:System.Guid" /> della classe.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.HandleCollector">
+      <summary>Tiene traccia degli handle in attesa e forza una procedura di Garbage Collection quando viene raggiunta la soglia specificata.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.HandleCollector.#ctor(System.String,System.Int32)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.HandleCollector" /> utilizzando un nome e una soglia dopo la quale avviare la procedura di Garbage Collection per gli handle. </summary>
+      <param name="name">Nome per lo strumento di raccolta.Questo parametro consente di denominare gli strumenti di raccolta che tengono traccia dei tipi di handle in modo separato.</param>
+      <param name="initialThreshold">Valore che specifica il punto in cui le procedure di Garbage Collection devono essere avviate.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">Il parametro <paramref name="initialThreshold" /> è minore di 0.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.HandleCollector.#ctor(System.String,System.Int32,System.Int32)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.HandleCollector" /> utilizzando un nome, una soglia dopo la quale avviare la procedura di Garbage Collection per gli handle e una soglia dopo la quale la procedura deve essere eseguita. </summary>
+      <param name="name">Nome per lo strumento di raccolta.  Questo parametro consente di denominare gli strumenti di raccolta che tengono traccia dei tipi di handle in modo separato.</param>
+      <param name="initialThreshold">Valore che specifica il punto in cui le procedure di Garbage Collection devono essere avviate.</param>
+      <param name="maximumThreshold">Valore che specifica il punto in cui devono essere eseguite le procedure di Garbage Collection.Questo valore deve essere impostato sul numero massimo di handle disponibili.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">Il parametro <paramref name="initialThreshold" /> è minore di 0.- oppure -Il parametro <paramref name="maximumThreshold" /> è minore di 0.</exception>
+      <exception cref="T:System.ArgumentException">Il parametro <paramref name="maximumThreshold" /> è minore del parametro <paramref name="initialThreshold" />.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.HandleCollector.Add">
+      <summary>Incrementa il numero corrente di handle.</summary>
+      <exception cref="T:System.InvalidOperationException">Il valore della proprietà <see cref="P:System.Runtime.InteropServices.HandleCollector.Count" /> è minore di 0.</exception>
+    </member>
+    <member name="P:System.Runtime.InteropServices.HandleCollector.Count">
+      <summary>Ottiene il numero di handle raccolti.</summary>
+      <returns>Numero di handle raccolti.</returns>
+    </member>
+    <member name="P:System.Runtime.InteropServices.HandleCollector.InitialThreshold">
+      <summary>Ottiene un valore che specifica il punto in cui le procedure di Garbage Collection devono essere avviate.</summary>
+      <returns>Valore che specifica il punto in cui le procedure di Garbage Collection devono essere avviate.</returns>
+    </member>
+    <member name="P:System.Runtime.InteropServices.HandleCollector.MaximumThreshold">
+      <summary>Ottiene un valore che specifica il punto in cui devono essere eseguite le procedure di Garbage Collection.</summary>
+      <returns>Valore che specifica il punto in cui devono essere eseguite le procedure di Garbage Collection.</returns>
+    </member>
+    <member name="P:System.Runtime.InteropServices.HandleCollector.Name">
+      <summary>Ottiene il nome di un oggetto <see cref="T:System.Runtime.InteropServices.HandleCollector" />.</summary>
+      <returns>Questa proprietà <see cref="P:System.Runtime.InteropServices.HandleCollector.Name" /> consente di denominare gli strumenti di raccolta che tengono traccia dei tipi di handle in modo separato.</returns>
+    </member>
+    <member name="M:System.Runtime.InteropServices.HandleCollector.Remove">
+      <summary>Decrementa il numero corrente di handle.</summary>
+      <exception cref="T:System.InvalidOperationException">Il valore della proprietà <see cref="P:System.Runtime.InteropServices.HandleCollector.Count" /> è minore di 0.</exception>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ICustomAdapter">
+      <summary>Fornisce ai client un modo per accedere all'oggetto vero e proprio, anziché all'oggetto adattatore distribuito da un gestore di marshalling personalizzato.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ICustomAdapter.GetUnderlyingObject">
+      <summary>Fornisce accesso all'oggetto sottostante di cui un gestore di marshalling personalizzato ha eseguito il wrapping.</summary>
+      <returns>Oggetto contenuto dall'oggetto adattatore.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.ICustomQueryInterface">
+      <summary>Consente agli sviluppatori di fornire una implementazione gestita e personalizzata del metodo IUnknown:: QueryInterface (REFIID riid, void **ppvObject).</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.ICustomQueryInterface.GetInterface(System.Guid@,System.IntPtr@)">
+      <summary>Restituisce un'interfaccia in base a un ID di interfaccia specificato.</summary>
+      <returns>Uno dei valori di enumerazione che indica se è stata utilizzata un'implementazione personalizzata di IUnknown::QueryInterface.</returns>
+      <param name="iid">GUID dell'interfaccia richiesta.</param>
+      <param name="ppv">Riferimento all'interfaccia richiesta, al completamento del metodo.</param>
+    </member>
+    <member name="T:System.Runtime.InteropServices.InAttribute">
+      <summary>Indica che è necessario eseguire il marshalling dei dati dal chiamante al destinatario della chiamata, ma non nuovamente al chiamante.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InAttribute.#ctor">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.InAttribute" />.</summary>
+    </member>
+    <member name="T:System.Runtime.InteropServices.InterfaceTypeAttribute">
+      <summary>Indica se un'interfaccia gestita è del tipo dual, dispatch-only o solo IUnknown durante l'esposizione a COM.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InterfaceTypeAttribute.#ctor(System.Int16)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.InterfaceTypeAttribute" /> con il membro di enumerazione <see cref="T:System.Runtime.InteropServices.ComInterfaceType" /> specificato.</summary>
+      <param name="interfaceType">Descrive come esporre l'interfaccia ai client COM. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InterfaceTypeAttribute.#ctor(System.Runtime.InteropServices.ComInterfaceType)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.InterfaceTypeAttribute" /> con il membro di enumerazione <see cref="T:System.Runtime.InteropServices.ComInterfaceType" /> specificato.</summary>
+      <param name="interfaceType">Uno dei valori <see cref="T:System.Runtime.InteropServices.ComInterfaceType" /> che descrive come esporre l'interfaccia a client COM. </param>
+    </member>
+    <member name="P:System.Runtime.InteropServices.InterfaceTypeAttribute.Value">
+      <summary>Ottiene il valore <see cref="T:System.Runtime.InteropServices.ComInterfaceType" /> che descrive come esporre l'interfaccia a COM.</summary>
+      <returns>Il valore <see cref="T:System.Runtime.InteropServices.ComInterfaceType" /> che descrive come esporre l'interfaccia a COM.</returns>
+    </member>
+    <member name="T:System.Runtime.InteropServices.InvalidComObjectException">
+      <summary>Eccezione generata quando si utilizza un oggetto COM non valido.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InvalidComObjectException.#ctor">
+      <summary>Inizializza un'istanza della classe InvalidComObjectException con le proprietà predefinite.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InvalidComObjectException.#ctor(System.String)">
+      <summary>Inizializza un'istanza della classe InvalidComObjectException con un messaggio.</summary>
+      <param name="message">Messaggio che indica la causa dell'eccezione. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InvalidComObjectException.#ctor(System.String,System.Exception)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.InvalidComObjectException" /> con un messaggio di errore specificato e un riferimento all'eccezione interna che è la causa dell'eccezione corrente.</summary>
+      <param name="message">Messaggio di errore nel quale viene indicato il motivo dell’eccezione </param>
+      <param name="inner">Eccezione causa dell'eccezione corrente.Se il parametro <paramref name="inner" /> non è null, l'eccezione corrente verrà generata in un blocco catch che gestisce l'eccezione interna.</param>
+    </member>
+    <member name="T:System.Runtime.InteropServices.InvalidOleVariantTypeException">
+      <summary>L'eccezione generata dal gestore di marshalling quando rileva un argomento di un tipo Variant del quale non è possibile eseguire il marshalling nel codice gestito.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InvalidOleVariantTypeException.#ctor">
+      <summary>Inizializza una nuova istanza della classe InvalidOleVariantTypeException con valori predefiniti.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InvalidOleVariantTypeException.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe InvalidOleVariantTypeException con un messaggio specificato.</summary>
+      <param name="message">Messaggio che indica la causa dell'eccezione. </param>
+    </member>
+    <member name="M:System.Runtime.InteropServices.InvalidOleVariantTypeException.#ctor(System.String,System.Exception)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Runtime.InteropServices.InvalidOleVariantTypeException" /> con un messaggio di errore specificato e un riferimento all'eccezione interna che è la causa dell'eccezione corrente.</summary>
+      <param name="message">Messaggio di errore nel quale viene indicato il motivo dell’eccezione </param>
+      <param name="inner">Eccezione causa dell'eccezione corrente.Se il parametro <paramref name="inner" /> non è null, l'eccezione corrente verrà generata in un blocco catch che gestisce l'eccezione interna.</param>
+    </member>
+    <member name="T:System.Runtime.InteropServices.Marshal">
+      <summary>Fornisce una raccolta di metodi per l'allocazione della memoria non gestita, la copia di blocchi di memoria non gestita e la conversione di tipi gestiti in tipi non gestiti, oltre ad altri metodi usati durante l'interazione con codice non gestito.</summary>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.AddRef(System.IntPtr)">
+      <summary>Incrementa il numero di riferimenti nell'interfaccia specificata.</summary>
+      <returns>Nuovo valore del conteggio dei riferimenti sul parametro <paramref name="pUnk" />.</returns>
+      <param name="pUnk">Numero di riferimenti nell'interfaccia da incrementare.</param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.AllocCoTaskMem(System.Int32)">
+      <summary>Alloca un blocco di memoria delle dimensioni specificate dall'allocatore di memoria delle attività COM.</summary>
+      <returns>Intero che rappresenta l'indirizzo del blocco di memoria allocato.Questa memoria deve essere liberata con <see cref="M:System.Runtime.InteropServices.Marshal.FreeCoTaskMem(System.IntPtr)" />.</returns>
+      <param name="cb">Dimensioni del blocco di memoria da allocare.</param>
+      <exception cref="T:System.OutOfMemoryException">Memoria insufficiente per soddisfare la richiesta.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.AllocHGlobal(System.Int32)">
+      <summary>Alloca memoria dalla memoria non gestita del processo tramite il numero specificato di byte.</summary>
+      <returns>Puntatore alla memoria appena allocata.Questa memoria deve essere liberata usando il metodo <see cref="M:System.Runtime.InteropServices.Marshal.FreeHGlobal(System.IntPtr)" />.</returns>
+      <param name="cb">Numero di byte necessari nella memoria.</param>
+      <exception cref="T:System.OutOfMemoryException">Memoria insufficiente per soddisfare la richiesta.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.AllocHGlobal(System.IntPtr)">
+      <summary>Alloca memoria dalla memoria non gestita del processo tramite il puntatore al numero specificato di byte.</summary>
+      <returns>Puntatore alla memoria appena allocata.Questa memoria deve essere liberata usando il metodo <see cref="M:System.Runtime.InteropServices.Marshal.FreeHGlobal(System.IntPtr)" />.</returns>
+      <param name="cb">Numero di byte necessari nella memoria.</param>
+      <exception cref="T:System.OutOfMemoryException">Memoria insufficiente per soddisfare la richiesta.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.AreComObjectsAvailableForCleanup">
+      <summary>Indica se Runtime Callable Wrapper (RCW) provenienti da qualsiasi contesto sono disponibili per la pulizia.</summary>
+      <returns>true se sono disponibili RCW per la pulizia. In caso contrario, false.</returns>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.Byte[],System.Int32,System.IntPtr,System.Int32)">
+      <summary>Copia i dati da una matrice di interi senza segno a 8 bit gestita e unidimensionale a un puntatore di memoria non gestita.</summary>
+      <param name="source">Matrice unidimensionale da cui copiare.</param>
+      <param name="startIndex">Indice in base zero nella matrice di origine in corrispondenza del quale inizia la copia.</param>
+      <param name="destination">Puntatore di memoria in cui copiare.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="startIndex" /> e <paramref name="length" /> non sono validi.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="startIndex" />, <paramref name="destination" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.Char[],System.Int32,System.IntPtr,System.Int32)">
+      <summary>Copia i dati da una matrice di caratteri gestita e unidimensionale a un puntatore di memoria non gestita.</summary>
+      <param name="source">Matrice unidimensionale da cui copiare.</param>
+      <param name="startIndex">Indice in base zero nella matrice di origine in corrispondenza del quale inizia la copia.</param>
+      <param name="destination">Puntatore di memoria in cui copiare.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="startIndex" /> e <paramref name="length" /> non sono validi.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="startIndex" />, <paramref name="destination" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.Double[],System.Int32,System.IntPtr,System.Int32)">
+      <summary>Copia i dati da una matrice di numeri a virgola mobile a precisione doppia gestita e unidimensionale a un puntatore di memoria non gestita.</summary>
+      <param name="source">Matrice unidimensionale da cui copiare.</param>
+      <param name="startIndex">Indice in base zero nella matrice di origine in corrispondenza del quale inizia la copia.</param>
+      <param name="destination">Puntatore di memoria in cui copiare.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="startIndex" /> e <paramref name="length" /> non sono validi.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="startIndex" />, <paramref name="destination" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.Int16[],System.Int32,System.IntPtr,System.Int32)">
+      <summary>Copia i dati da una matrice di interi con segno a 16 bit gestita e unidimensionale a un puntatore di memoria non gestita.</summary>
+      <param name="source">Matrice unidimensionale da cui copiare.</param>
+      <param name="startIndex">Indice in base zero nella matrice di origine in corrispondenza del quale inizia la copia.</param>
+      <param name="destination">Puntatore di memoria in cui copiare.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="startIndex" /> e <paramref name="length" /> non sono validi.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="startIndex" />, <paramref name="destination" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.Int32[],System.Int32,System.IntPtr,System.Int32)">
+      <summary>Copia i dati da una matrice di interi con segno a 32 bit gestita e unidimensionale a un puntatore di memoria non gestita.</summary>
+      <param name="source">Matrice unidimensionale da cui copiare.</param>
+      <param name="startIndex">Indice in base zero nella matrice di origine in corrispondenza del quale inizia la copia.</param>
+      <param name="destination">Puntatore di memoria in cui copiare.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="startIndex" /> e <paramref name="length" /> non sono validi.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.Int64[],System.Int32,System.IntPtr,System.Int32)">
+      <summary>Copia i dati da una matrice di interi con segno a 64 bit gestita e unidimensionale a un puntatore di memoria non gestita.</summary>
+      <param name="source">Matrice unidimensionale da cui copiare.</param>
+      <param name="startIndex">Indice in base zero nella matrice di origine in corrispondenza del quale inizia la copia.</param>
+      <param name="destination">Puntatore di memoria in cui copiare.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="startIndex" /> e <paramref name="length" /> non sono validi.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="startIndex" />, <paramref name="destination" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr,System.Byte[],System.Int32,System.Int32)">
+      <summary>Copia i dati da un puntatore di memoria non gestita a una matrice di interi senza segno a 8 bit gestita.</summary>
+      <param name="source">Puntatore di memoria da cui copiare.</param>
+      <param name="destination">Matrice in cui effettuare la copia.</param>
+      <param name="startIndex">Indice in base zero nella matrice di destinazione in corrispondenza del quale inizia la copia.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr,System.Char[],System.Int32,System.Int32)">
+      <summary>Copia i dati da un puntatore di memoria non gestita a una matrice di caratteri gestita.</summary>
+      <param name="source">Puntatore di memoria da cui copiare.</param>
+      <param name="destination">Matrice in cui effettuare la copia.</param>
+      <param name="startIndex">Indice in base zero nella matrice di destinazione in corrispondenza del quale inizia la copia.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr,System.Double[],System.Int32,System.Int32)">
+      <summary>Copia i dati da un puntatore di memoria non gestita a una matrice di numeri a virgola mobile a precisione doppia gestita.</summary>
+      <param name="source">Puntatore di memoria da cui copiare.</param>
+      <param name="destination">Matrice in cui effettuare la copia.</param>
+      <param name="startIndex">Indice in base zero nella matrice di destinazione in corrispondenza del quale inizia la copia.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr,System.Int16[],System.Int32,System.Int32)">
+      <summary>Copia i dati da un puntatore di memoria non gestita a una matrice di interi con segno a 16 bit gestita.</summary>
+      <param name="source">Puntatore di memoria da cui copiare.</param>
+      <param name="destination">Matrice in cui effettuare la copia.</param>
+      <param name="startIndex">Indice in base zero nella matrice di destinazione in corrispondenza del quale inizia la copia.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr,System.Int32[],System.Int32,System.Int32)">
+      <summary>Copia i dati da un puntatore di memoria non gestita a una matrice di interi con segno a 32 bit gestita.</summary>
+      <param name="source">Puntatore di memoria da cui copiare.</param>
+      <param name="destination">Matrice in cui effettuare la copia.</param>
+      <param name="startIndex">Indice in base zero nella matrice di destinazione in corrispondenza del quale inizia la copia.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr,System.Int64[],System.Int32,System.Int32)">
+      <summary>Copia i dati da un puntatore di memoria non gestita a una matrice di interi con segno a 64 bit gestita.</summary>
+      <param name="source">Puntatore di memoria da cui copiare.</param>
+      <param name="destination">Matrice in cui effettuare la copia.</param>
+      <param name="startIndex">Indice in base zero nella matrice di destinazione in corrispondenza del quale inizia la copia.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr,System.IntPtr[],System.Int32,System.Int32)">
+      <summary>Copia i dati da un puntatore di memoria non gestita a una matrice <see cref="T:System.IntPtr" /> gestita.</summary>
+      <param name="source">Puntatore di memoria da cui copiare. </param>
+      <param name="destination">Matrice in cui effettuare la copia.</param>
+      <param name="startIndex">Indice in base zero nella matrice di destinazione in corrispondenza del quale inizia la copia.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr,System.Single[],System.Int32,System.Int32)">
+      <summary>Copia i dati da un puntatore di memoria non gestita a una matrice di numeri a virgola mobile a precisione singola gestita.</summary>
+      <param name="source">Puntatore di memoria da cui copiare. </param>
+      <param name="destination">Matrice in cui effettuare la copia. </param>
+      <param name="startIndex">Indice in base zero nella matrice di destinazione in corrispondenza del quale inizia la copia. </param>
+      <param name="length">Numero degli elementi di matrice da copiare. </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null. </exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.IntPtr[],System.Int32,System.IntPtr,System.Int32)">
+      <summary>Copia i dati da una matrice <see cref="T:System.IntPtr" /> unidimensionale gestita a un puntatore di memoria non gestita.</summary>
+      <param name="source">Matrice unidimensionale da cui copiare.</param>
+      <param name="startIndex">Indice in base zero nella matrice di origine in corrispondenza del quale inizia la copia.</param>
+      <param name="destination">Puntatore di memoria in cui copiare.</param>
+      <param name="length">Numero degli elementi di matrice da copiare.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="destination" />, <paramref name="startIndex" /> o <paramref name="length" /> è null.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.Copy(System.Single[],System.Int32,System.IntPtr,System.Int32)">
+      <summary>Copia i dati da una matrice di numeri a virgola mobile a precisione singola gestita unidimensionale a un puntatore di memoria non gestita.</summary>
+      <param name="source">Matrice unidimensionale da cui copiare. </param>
+      <param name="startIndex">Indice in base zero nella matrice di origine in corrispondenza del quale inizia la copia. </param>
+      <param name="destination">Puntatore di memoria in cui copiare. </param>
+      <param name="length">Numero degli elementi di matrice da copiare. </param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="startIndex" /> e <paramref name="length" /> non sono validi. </exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" />, <paramref name="startIndex" />, <paramref name="destination" /> o <paramref name="length" /> è null. </exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.CreateAggregatedObject(System.IntPtr,System.Object)">
+      <summary>Aggrega un oggetto gestito all'oggetto COM specificato.</summary>
+      <returns>Puntatore IUnknown interno dell'oggetto gestito.</returns>
+      <param name="pOuter">Puntatore IUnknown esterno.</param>
+      <param name="o">Oggetto da aggregare.</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="o" /> è un oggetto Windows Runtime.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.CreateAggregatedObject``1(System.IntPtr,``0)">
+      <summary>[Supportato in .NET Framework 4.5.1 e versioni successive] Aggrega un oggetto gestito del tipo specificato con l'oggetto COM specificato. </summary>
+      <returns>Puntatore IUnknown interno dell'oggetto gestito. </returns>
+      <param name="pOuter">Puntatore IUnknown esterno. </param>
+      <param name="o">Oggetto gestito da aggregare. </param>
+      <typeparam name="T">Tipo dell'oggetto gestito da aggregare. </typeparam>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="o" /> è un oggetto Windows Runtime. </exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.CreateWrapperOfType(System.Object,System.Type)">
+      <summary>Include l'oggetto COM specificato in un oggetto del tipo specificato.</summary>
+      <returns>L'oggetto appena incluso che è un'istanza del tipo desiderato.</returns>
+      <param name="o">Oggetto da includere. </param>
+      <param name="t">Tipo di wrapper da creare. </param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="t" /> deve derivare da __ComObject. -oppure-<paramref name="t" /> è un tipo Windows Runtime.</exception>
+      <exception cref="T:System.ArgumentNullException">Il parametro <paramref name="t" /> è null.</exception>
+      <exception cref="T:System.InvalidCastException">
+        <paramref name="o" /> non può essere convertito nel tipo di destinazione perché non supporta tutte le interfacce richieste. </exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.CreateWrapperOfType``2(``0)">
+      <summary>[Supportato in .NET Framework 4.5.1 e versioni successive] Include l'oggetto COM specificato in un oggetto del tipo specificato.</summary>
+      <returns>Oggetto appena incluso. </returns>
+      <param name="o">Oggetto da includere. </param>
+      <typeparam name="T">Tipo di oggetto di cui eseguire il wrapping. </typeparam>
+      <typeparam name="TWrapper">Tipo di oggetto da restituire. </typeparam>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="T" /> deve derivare da __ComObject. -oppure-<paramref name="T" /> è un tipo Windows Runtime.</exception>
+      <exception cref="T:System.InvalidCastException">
+        <paramref name="o" /> non può essere convertito in <paramref name="TWrapper" /> perché non supporta tutte le interfacce richieste. </exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.DestroyStructure``1(System.IntPtr)">
+      <summary>[Supportato in .NET Framework 4.5.1 e versioni successive] Libera tutte le sottostrutture di un tipo specificato a cui punta il blocco di memoria non gestita specificato. </summary>
+      <param name="ptr">Puntatore a un blocco di memoria non gestita. </param>
+      <typeparam name="T">Tipo della struttura formattata.Fornisce le informazioni di layout necessarie per eliminare il buffer o i buffer nel parametro <paramref name="ptr" />.</typeparam>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="T" /> dispone di un layout automatico.Utilizzare invece il layout sequenziale o esplicito.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.DestroyStructure(System.IntPtr,System.Type)">
+      <summary>Libera tutte le sottostrutture a cui punta il blocco di memoria non gestita specificato.</summary>
+      <param name="ptr">Puntatore a un blocco di memoria non gestita. </param>
+      <param name="structuretype">Tipo di una classe formattata.Fornisce le informazioni di layout necessarie per eliminare il buffer o i buffer nel parametro <paramref name="ptr" />.</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="structureType" /> dispone di un layout automatico.Utilizzare invece il layout sequenziale o esplicito.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.FinalReleaseComObject(System.Object)">
+      <summary>Rilascia tutti i riferimenti a un Runtime Callable Wrapper (RCW) impostando il suo conteggio dei riferimenti a 0.</summary>
+      <returns>Nuovo valore del conteggio dei riferimenti dell'oggetto RCW associato al parametro <paramref name="o" />corrispondente a 0 (zero) se il rilascio è stato eseguito correttamente.</returns>
+      <param name="o">Wrapper RCW da rilasciare.</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="o" /> non è un oggetto COM valido.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="o" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.FreeBSTR(System.IntPtr)">
+      <summary>Libera un BSTR usando la funzione COM SysFreeString.</summary>
+      <param name="ptr">Indirizzo del BSTR da liberare. </param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.FreeCoTaskMem(System.IntPtr)">
+      <summary>Libera un blocco di memoria assegnato dall'allocatore di memoria non gestita delle attività COM.</summary>
+      <param name="ptr">Indirizzo della memoria da liberare. </param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.FreeHGlobal(System.IntPtr)">
+      <summary>Libera la memoria precedentemente allocata dalla memoria non gestita del processo.</summary>
+      <param name="hglobal">L'handle restituito dalla chiamata di corrispondenza originale a <see cref="M:System.Runtime.InteropServices.Marshal.AllocHGlobal(System.IntPtr)" />. </param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetComInterfaceForObject(System.Object,System.Type)">
+      <summary>Restituisce un puntatore a interfaccia IUnknown che rappresenta l'interfaccia specificata sull'oggetto specificato.L'accesso all'interfaccia di query è abilitato per impostazione predefinita.</summary>
+      <returns>Puntatore a interfaccia che rappresenta l'interfaccia specificata per l'oggetto.</returns>
+      <param name="o">Oggetto che fornisce l'interfaccia. </param>
+      <param name="T">Tipo di interfaccia richiesto. </param>
+      <exception cref="T:System.ArgumentException">Il parametro <paramref name="T" /> non è un'interfaccia.-oppure- Il tipo non è visibile a COM. -oppure-Il parametro <paramref name="T" /> è un tipo generico.</exception>
+      <exception cref="T:System.InvalidCastException">Il parametro <paramref name="o" /> non supporta l'interfaccia richiesta. </exception>
+      <exception cref="T:System.ArgumentNullException">Il parametro <paramref name="o" /> è null.-oppure- Il parametro <paramref name="T" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetComInterfaceForObject(System.Object,System.Type,System.Runtime.InteropServices.CustomQueryInterfaceMode)">
+      <summary>Restituisce un puntatore a interfaccia IUnknown che rappresenta l'interfaccia specificata sull'oggetto specificato.L'accesso all'interfaccia di query personalizzato viene controllato dalla modalità della personalizzazione specificata.</summary>
+      <returns>Puntatore a interfaccia che rappresenta l'interfaccia per l'oggetto.</returns>
+      <param name="o">Oggetto che fornisce l'interfaccia.</param>
+      <param name="T">Tipo di interfaccia richiesto.</param>
+      <param name="mode">Uno dei valori di enumerazione che indica se applicare una personalizzazione IUnknown::QueryInterface fornita da un oggetto <see cref="T:System.Runtime.InteropServices.ICustomQueryInterface" />.</param>
+      <exception cref="T:System.ArgumentException">Il parametro <paramref name="T" /> non è un'interfaccia.-oppure- Il tipo non è visibile a COM.-oppure-Il parametro <paramref name="T" /> è un tipo generico.</exception>
+      <exception cref="T:System.InvalidCastException">Il parametro <paramref name="o" /> dell'oggetto non supporta l'interfaccia richiesta.</exception>
+      <exception cref="T:System.ArgumentNullException">Il parametro <paramref name="o" /> è null.-oppure- Il parametro <paramref name="T" /> è null.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetComInterfaceForObject``2(``0)">
+      <summary>[Supportato in .NET Framework 4.5.1 e versioni successive] Restituisce un puntatore a interfaccia IUnknown che rappresenta l'interfaccia specificata sull'oggetto del tipo specificato.L'accesso all'interfaccia di query è abilitato per impostazione predefinita.</summary>
+      <returns>Puntatore a interfaccia che rappresenta l'interfaccia <paramref name="TInterface" />.</returns>
+      <param name="o">Oggetto che fornisce l'interfaccia. </param>
+      <typeparam name="T">Tipo di <paramref name="o" />. </typeparam>
+      <typeparam name="TInterface">Tipo di interfaccia da restituire. </typeparam>
+      <exception cref="T:System.ArgumentException">Il parametro <paramref name="TInterface" /> non è un'interfaccia.-oppure- Il tipo non è visibile a COM. -oppure-Il parametro <paramref name="T" /> è un tipo generico aperto.</exception>
+      <exception cref="T:System.InvalidCastException">Il parametro <paramref name="o" /> non supporta l'interfaccia <paramref name="TInterface" />. </exception>
+      <exception cref="T:System.ArgumentNullException">Il parametro <paramref name="o" /> è null.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetDelegateForFunctionPointer``1(System.IntPtr)">
+      <summary>[Supportato in .NET Framework 4.5.1 e versioni successive] Converte un puntatore a funzione non gestito in un delegato di un tipo specificato. </summary>
+      <returns>Istanza del tipo di delegato specificato.</returns>
+      <param name="ptr">Puntatore alla funzione non gestita da convertire. </param>
+      <typeparam name="TDelegate">Tipo del delegato da restituire. </typeparam>
+      <exception cref="T:System.ArgumentException">Il parametro generico <paramref name="TDelegate" /> non è un delegato oppure è un tipo generico aperto.</exception>
+      <exception cref="T:System.ArgumentNullException">Il parametro <paramref name="ptr" /> è null.</exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetDelegateForFunctionPointer(System.IntPtr,System.Type)">
+      <summary>Converte un puntatore a funzione non gestito in un delegato.</summary>
+      <returns>Istanza di delegato di cui è possibile eseguire il cast al tipo di delegato appropriato.</returns>
+      <param name="ptr">Puntatore alla funzione non gestita da convertire.</param>
+      <param name="t">Tipo di delegato da restituire.</param>
+      <exception cref="T:System.ArgumentException">Il parametro <paramref name="t" /> non è un delegato o è generico.</exception>
+      <exception cref="T:System.ArgumentNullException">Il parametro <paramref name="ptr" /> è null.-oppure-Il parametro <paramref name="t" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetExceptionCode">
+      <summary>Recupera un codice che identifica il tipo dell'eccezione che si è verificata.</summary>
+      <returns>Tipo dell'eccezione.</returns>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetExceptionForHR(System.Int32)">
+      <summary>Converte il codice errore HRESULT specificato in un oggetto <see cref="T:System.Exception" /> corrispondente.</summary>
+      <returns>Oggetto che rappresenta l'HRESULT convertito.</returns>
+      <param name="errorCode">Codice errore HRESULT da convertire.</param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetExceptionForHR(System.Int32,System.IntPtr)">
+      <summary>Converte il codice errore HRESULT specificato in un oggetto <see cref="T:System.Exception" /> corrispondente, con ulteriori informazioni sull'errore passate in un'interfaccia IErrorInfo per l'oggetto eccezione.</summary>
+      <returns>Oggetto che rappresenta HRESULT convertito e le informazioni ottenute da <paramref name="errorInfo" />.</returns>
+      <param name="errorCode">Codice errore HRESULT da convertire.</param>
+      <param name="errorInfo">Puntatore all'interfaccia IErrorInfo che fornisce ulteriori informazioni sull'errore.È possibile specificare IntPtr(0) per usare l'interfaccia IErrorInfo corrente oppure IntPtr(-1) per ignorare l'interfaccia IErrorInfo corrente e costruire l'eccezione unicamente dal codice errore.</param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(System.Delegate)">
+      <summary>Converte un delegato in un puntatore a funzione disponibile per la chiamata dal codice non gestito.</summary>
+      <returns>Valore che può essere passato al codice non gestito, che a sua volta può usarlo per chiamare il delegato gestito sottostante. </returns>
+      <param name="d">Delegato da passare al codice non gestito.</param>
+      <exception cref="T:System.ArgumentException">Il parametro <paramref name="d" /> è un tipo generico.</exception>
+      <exception cref="T:System.ArgumentNullException">Il parametro <paramref name="d" /> è null.</exception>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate``1(``0)">
+      <summary>[Supportato in .NET Framework 4.5.1 e versioni successive] Converte un delegato di un tipo specificato in un puntatore a funzione disponibile per la chiamata dal codice non gestito. </summary>
+      <returns>Valore che può essere passato al codice non gestito, che a sua volta può usarlo per chiamare il delegato gestito sottostante. </returns>
+      <param name="d">Delegato da passare al codice non gestito. </param>
+      <typeparam name="TDelegate">Tipo di delegato da convertire. </typeparam>
+      <exception cref="T:System.ArgumentNullException">Il parametro <paramref name="d" /> è null. </exception>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetHRForException(System.Exception)">
+      <summary>Converte l'eccezione specificata in valore HRESULT.</summary>
+      <returns>Valore HRESULT mappato all'eccezione fornita.</returns>
+      <param name="e">Eccezione da convertire in valore HRESULT.</param>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode" />
+      </PermissionSet>
+    </member>
+    <member name="M:System.Runtime.InteropServices.Marshal.GetHRForLastWin32Error">
+      <summary>Restituisce il valore HRESULT corrispondente all'ultimo errore in cui è incorso il codice Win32 eseguito usando <see cref="T:System.Runtime.InteropServices.Marshal" />.</summary>
+      <returns>HRESULT corrispondente all'ultimo codice errore Win32.</returns>
+      <PermissionSet>
+        <IPermission class="System.Security.Permissions

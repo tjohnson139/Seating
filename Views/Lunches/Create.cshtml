@@ -1,0 +1,115 @@
+﻿@model Seating.Models.Lunch
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Manual Lunch Entry</title>
+</head>
+<body>
+    @Html.Partial("_Header")
+    <div id="instructions" style="margin:3em; margin-top:0em;">
+        <h1 style="text-align:center; font-family: 'Alegreya Sans SC';">Manual Lunch List Entry</h1>
+        <h3 style="text-align:center; font-family: 'Alegreya Sans SC'; color:red">Always take a spot designated for your assigned shift</h3>
+        <h6 style="text-align:center; font-family: 'Alegreya Sans SC';">You may double up on lunches when there are three reliefs or with lead permission. Lunch spots already taken are in red but can still be used.</h6>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    }
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="text-align:center">
+            Dispatcher Name
+            <div class="dropdownName" style="margin-left: 35em; margin-top:.5em; width:7em">
+                @Html.DropDownList("EmployeeID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="container" style="margin-top:3em; text-align:center; margin-bottom:3em;">            
+            <div class="row">
+                <div class="col">
+                    col 1
+                </div>
+                    <div class="col">
+                        2 of 3 (wider)
+                    </div>
+                    <div class="col">
+                        3 of 3
+                    </div>
+                    <div class="col">
+                        4 of 4
+                    </div>
+                    <div class="col">
+                        5 of 4
+                    </div>
+                    <div class="col">
+                        6 of 4
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PositionID, "PositionID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("PositionID", null, htmlAttributes: new { @class = "form-control" });
+                    @Html.ValidationMessageFor(model => model.PositionID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LongerLunch, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.LongerLunch)
+                        @Html.ValidationMessageFor(model => model.LongerLunch, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </body>
+</html>
+
+<script>
+        $(document).ready(function () {
+            $("#Lunchsubmit-form").click(function () {
+                var model = {};
+                model.EmployeeID = Number($("#lunchemployeeId").val());
+                model.PositionID = Number($("#lunchposition").val());
+                model.LunchTime = String($("#lunchtime").val());
+                model.LongerLunch = $('#lunch45').is(":checked");
+                console.log("model", model);
+                $.ajax({
+                    type: "HttpPost",
+                    url: "/Home/CreateLunch",
+                    dataType: 'json',
+                    data: JSON.stringify(model),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.success)
+                            window.location.href = "/Home/Index";
+                        else
+                            alert("Error: Lunch not submitted");
+                    },
+                    error: function () {
+                        alert("Error: Lunch not submitted");
+                    }
+                });
+            });
+        });
+</script>

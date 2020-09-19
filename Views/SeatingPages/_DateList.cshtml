@@ -1,0 +1,36 @@
+﻿@model Seating.Models.SeatingPage
+
+@{
+    var dateList = new List<Seating.Models.SeatingPage>();
+    dateList = (List<Seating.Models.SeatingPage>)ViewBag.dateList;
+}
+
+<div style="margin-left:15em; margin-top:2em;" class="col-md-8">
+    <table class="table">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                URL
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in dateList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeatingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.URL)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SeatingId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

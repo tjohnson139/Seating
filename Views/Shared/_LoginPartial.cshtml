@@ -1,0 +1,9 @@
+﻿@using Microsoft.AspNet.Identity
+
+    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="nav-link">
+            <a href="javascript:document.getElementById('logoutForm').submit()">&thinsp;Log off</a>
+        </div>
+    }

@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+    var employee = ViewBag.EmployeesNames;
+    var positionNames = ViewBag.PositionNames;
+    var scheduleTimes = ViewBag.ScheduleTimes;
+    var modelOrdered = ViewBag.LunchTimes;
+    var positionOrdered = ViewBag.positionOrdered;
+}
+<div class="card" id="Dropdowns" style="width: 10.5em; margin-top:20em; position:absolute">
+    <div class="form formBuffer" style="text-align:center">
+        <div class="col-med-6">
+            <select class="index-dropdown" id="dthemployeeId">
+                <option value="" selected>-- Dispatcher --</option>
+                @foreach (var employeeName in employee)
+                {
+                    <option value="@employeeName.EmployeeID">@employeeName.DisplayName</option>
+                }
+            </select>
+            <select class="index-dropdown" id="dthpositionId" style="margin-top: .5em">
+                <option value="" selected>-- Position --</option>
+                @foreach (var positionName in positionOrdered)
+                {
+                    <option value="@positionName.PositionID">@positionName.PositionName</option>
+                }
+            </select>
+        </div>
+        <div class="col-med-12 formBuffer">
+            <button id="Dthsubmit-form" class="btn btn-secondary btn-sm">Submit</button>
+        </div>
+    </div>
+</div>
+<div class="card" id="Dropdowns" style="width: 10.5em; margin-left: 10em; margin-top:20em; position:absolute">
+    <div class="form formBuffer" style="text-align:center;">
+        <div class="col-med-6">
+            <select class="index-dropdown" id="employeeId">
+                <option value="" selected>-- Dispatcher --</option>
+                @foreach (var employeeName in employee)
+                {
+                    <option value="@employeeName.EmployeeID">@employeeName.DisplayName</option>
+                }
+            </select>
+            <select class="index-dropdown" id="positionId" style="margin-top: .5em;">
+                <option value="" selected>-- Position --</option>
+                @foreach (var positionName in positionOrdered)
+                {
+                    <option value="@positionName.PositionID">@positionName.PositionName</option>
+                }
+            </select>
+        </div>
+        <div class="col-med-12 formBuffer">
+            <button id="submit-form" class="btn btn-secondary btn-sm">Submit</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="form" style="width:9em; margin-left:21em; margin-top:24.5em; justify-content:center">
+    <a class="btn btn-secondary btn-sm" style="margin-top:1.25em; margin-left:4.5em;" href="/Home/Lunch" role="button">Add Lunch</a>
+</div>

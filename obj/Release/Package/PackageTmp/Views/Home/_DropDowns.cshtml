@@ -1,0 +1,229 @@
+﻿@{
+    var employee = ViewBag.EmployeesNames;
+    var positionNames = ViewBag.PositionNames;
+    var scheduleTimes = ViewBag.ScheduleTimes;
+    var modelOrdered = ViewBag.LunchTimes;
+    var positionOrdered = ViewBag.positionOrdered;
+}
+
+<div class="card" id="Dropdowns" style="width: 10.5em; margin-left: .5em; position:absolute">
+    <div class="card-body" id="refresh-card" style="margin-right:1em; margin-left:-.5em">
+        <h5 class="card-title" style="text-align:center">DTH</h5>
+        <table class="table-bordered" style="width:8em;">
+            @*populate the table with only those breaks that lack a TimeCleared value*@
+            @if (ViewBag.Dths != null)
+            {
+                foreach (var item in ViewBag.Dths)
+                {
+                    if (item.TimeCleared == null)
+                    {
+                        if (item.TimeEntered.AddMinutes(1) > DateTime.Now)
+                        {
+                            <tr>
+                                @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                <td class="listTime">
+                                    <input type="hidden" class="hiddenDthID" value="@item.DthID" />
+                                    <a href="Javascript:;" class="empNameDth" style="color:black">@item.Employee.DisplayName</a>
+                                </td>
+                                <td class="listTime" style="width:2.5em">
+                                    @item.Position.PositionName
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                <td class="DthIdNumber">
+                                    <input type="hidden" class="hiddenDthID" value="@item.DthID" />
+                                    <a href="Javascript:;" class="empNameDth" style="color:black">@item.Employee.DisplayName</a>
+                                </td>
+                                <td class="DthIdNumber" style="width:2.5em">
+                                    @item.Position.PositionName
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            }
+        </table>
+        <div class="form formBuffer" style="text-align:center">
+            <div class="col-med-6">
+                <select class="index-dropdown" id="dthemployeeId">
+                    <option value="" selected>-- Dispatcher --</option>
+                    @foreach (var employeeName in employee)
+                    {
+                        <option value="@employeeName.EmployeeID">@employeeName.DisplayName</option>
+                    }
+                </select>
+                <select class="index-dropdown" id="dthpositionId" style="margin-top: .5em">
+                    <option value="" selected>-- Position --</option>
+                    @foreach (var positionName in positionOrdered)
+                    {
+                        <option value="@positionName.PositionID">@positionName.PositionName</option>
+                    }
+                </select>
+            </div>
+            <div class="col-med-12 formBuffer">
+                <button id="Dthsubmit-form" class="btn btn-secondary btn-sm">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*start the break list table*@
+<div class="card" style="width: 10.5em; display: inline-block; margin-left: 10em;position: absolute">
+    <div class="card-body">
+        <h5 class="card-title" style="text-align:center">Break</h5>
+        <table class="table-bordered" style="width:8em">
+            @*populate the table with only those breaks that lack a TimeCleared value*@
+            @if (ViewBag.Breaks != null)
+            {
+                foreach (var item in ViewBag.Breaks)
+                {
+                    if (item.TimeCleared == null)
+                    {
+                        if (item.TimeEntered.AddMinutes(1) > DateTime.Now)
+                        {
+                            <tr>
+                                @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                <td class="listTime">
+                                    <input type="hidden" class="hiddenBreaksID" value="@item.BreakID" />
+                                    <a href="Javascript:;" class="empName" style="color:black">@item.Employee.DisplayName</a>
+                                </td>
+                                <td class="listTime" style="width:2.5em;">
+                                    @item.Position.PositionName
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                @*Make each name clickable to set a TimeCleared datetime.Now time*@
+                                <td class="breakIdNumber">
+                                    <input type="hidden" class="hiddenBreaksID" value="@item.BreakID" />
+                                    <a href="Javascript:;" class="empName" style="color:black">@item.Employee.DisplayName</a>
+                                </td>
+                                <td class="breakIdNumber" style="width:2.5em;">
+                                    @item.Position.PositionName
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            }
+        </table>
+        <div class="form formBuffer" style="text-align:center;">
+            <div class="col-med-6">
+                <select class="index-dropdown" id="employeeId">
+                    <option value="" selected>-- Dispatcher --</option>
+                    @foreach (var employeeName in employee)
+                    {
+                        <option value="@employeeName.EmployeeID">@employeeName.DisplayName</option>
+                    }
+                </select>
+                <select class="index-dropdown" id="positionId" style="margin-top: .5em;">
+                    <option value="" selected>-- Position --</option>
+                    @foreach (var positionName in positionOrdered)
+                    {
+                        <option value="@positionName.PositionID">@positionName.PositionName</option>
+                    }
+                </select>
+            </div>
+            <div class="col-med-12 formBuffer">
+                <button id="submit-form" class="btn btn-secondary btn-sm">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card" style="width: 15em; display:inline-block;margin-left:19.5em;position: absolute;">
+    <div class="card-body">
+        <h5 class="card-title" style="text-align:center">Lunch</h5>
+        <table class="table-bordered" id="table_lunch" style="width:13em;">
+            @*populate the table with only those breaks that lack a TimeCleared value*@
+            @if (ViewBag.Lunches != null)
+            {
+                foreach (var item in modelOrdered)
+                {
+                    if (DateTime.Now >= item.LunchTime.AddMinutes(-1) && DateTime.Now <= item.LunchTime.AddMinutes(1))
+                    {
+                        if (DateTime.Now < item.LunchTime.AddHours(1))
+                        {
+                            <tr class="listTime">
+                                @*Make each name clickable - deletes the lunch*@
+                                <td class="LunchIdNumber">
+                                    @if (item.LongerLunch == false && item.Double == false)
+                                    {
+                                        <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                        <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName</a>
+                                    }
+                                    @if (item.Double == true && item.LongerLunch == false)
+                                    {
+                                        <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                        <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl</div></a>
+                                    }
+                                    @if (item.Double == false && item.LongerLunch == true)
+                                    {
+                                        <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                        <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - 45</div></a>
+                                    }
+                                    @if (item.Double == true && item.LongerLunch == true)
+                                    {
+                                        <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                        <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl -45</div></a>
+                                    }
+                                </td>
+                                <td class="LunchIdNumber" style="width:3em;">
+                                    @item.Position.PositionName
+                                </td>
+                                <td class="LunchIdNumber" style="width:3em;">
+                                    @item.LunchTime.ToString("HH:mm")
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        if (DateTime.Now < item.LunchTime.AddHours(1))
+                        {
+                            <tr>
+                                @*Make each name clickable - deletes the lunch*@
+                                <td class="LunchIdNumber">
+                                    @if (item.LongerLunch == false && item.Double == false)
+                                    {
+                                        <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                        <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName</a>
+                                    }
+                                    @if (item.Double == true && item.LongerLunch == false)
+                                    {
+                                        <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                        <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl</div></a>
+                                    }
+                                    @if (item.Double == false && item.LongerLunch == true)
+                                    {
+                                        <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                        <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - 45</div></a>
+                                    }
+                                    @if (item.Double == true && item.LongerLunch == true)
+                                    {
+                                        <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                        <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl -45</div></a>
+                                    }
+                                </td>
+                                <td class="LunchIdNumber" style="width:3em;">
+                                    @item.Position.PositionName
+                                </td>
+                                <td class="LunchIdNumber" style="width:3em;">
+                                    @item.LunchTime.ToString("HH:mm")
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            }
+        </table>
+        <div class="form" style="width:13em; justify-content:center">
+            <a class="btn btn-secondary btn-sm" style="margin-top:1.25em; margin-left:4.5em;" href="/Home/Lunch" role="button">Add Lunch</a>
+        </div>
+    </div>
+</div>

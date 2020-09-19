@@ -1,0 +1,145 @@
+﻿@model Seating.Models.ApplicationDbContext
+
+@{
+    Layout = null;
+    var employee = new List<Seating.Models.Employee>();
+    employee = (List<Seating.Models.Employee>)ViewBag.EmployeesNames;
+    var positionNames = new List<Seating.Models.Position>();
+    positionNames = (List<Seating.Models.Position>)ViewBag.PositionNames;
+    List<string> times = Seating.Helper.Common.getTimes();
+    List<string> timesOver = Seating.Helper.Common.getTimesOver();
+    var modelOrdered = Model.Lunches.OrderBy(m => m.LunchTime);
+    var positionOrdered = new List<Seating.Models.Position>();
+    positionOrdered = (List<Seating.Models.Position>)ViewBag.positionOrdered;
+    var Overridequestion = "DO NOT USE THIS UNLESS:\n\n--You have supervisor permission for a double lunch. If you are doubling your lunch, check the \"Dbl\"" +
+                "checkbox to alert relief that there are double lunches. If you have a 45 minute lunch, also check the \"45\" checkbox.\n\n--You have permission to take" +
+                " a lunch outside of normal lunch times for maternity breaks, etc.\n\n" +
+                "FOR ALL OTHER CASES, USE THE \"Sign Up\" SECTION. The sign-up section will only allow you to sign up for lunch times that are availble. Using that will " +
+                "prevent accidental double lunches.";
+    var Lunchquestion = "Using the above chart, find the hours you're working, time you'd like to take your lunch and the position you'll be working at that time. " +
+                "If the time you choose is not in the dropdown, someone else has selected that lunch time and you'll need to choose another one. " +
+                "If, on the rare occasion, nobody has selected that lunch time but it's not in the dropdown, you may use the \"Override\" section.";
+
+    <link href='https://fonts.googleapis.com/css?family=Alegreya Sans SC' rel='stylesheet'>
+}
+<div container>
+    <div class="card" style="width: 12em; display:inline-block;text-align:center; margin-left:8em; margin-top:-45em;">
+        <div class="card-body">
+            @* Override sign-up form *@
+            <div class="form formBuffer" style="text-align:center">
+                <h3 style="width:5em; color:red; display:inline-block; margin-left:0.5em">
+                    Override     <img src="~/Content/Images/question.jpg" height="15" width="15"
+                                      data-toggle="popover" title="@Overridequestion" />
+                </h3>
+                <select class="index-dropdown" style="width:10em;" id="lunchemployeeIdOverride">
+                    <option value="" selected>-- Dispatcher --</option>
+                    @foreach (var employeeName in employee)
+                    {
+                        <option value="@employeeName.EmployeeID">@employeeName.DisplayName</option>
+                    }
+                </select>
+                <select class="index-dropdown" style="width:10em; margin-top:.5em" id="lunchetimeOverride">
+                    <option value="" selected>-- Permission Only --</option>
+                    @foreach (var timeover in timesOver)
+                    {
+                        <option value="@timeover">@timeover</option>
+                    }
+                </select>
+                <select class="index-dropdown" id="lunchpositionOverride" style="margin-top: .5em; width:10em; text-align:center">
+                    <option value="" selected>-- Position --</option>
+                    @foreach (var positionName in positionOrdered)
+                    {
+                        <option value="@positionName.PositionID">@positionName.PositionName</option>
+                    }
+                </select>
+                <input style="margin-top:.5em;" id="lunch45Override" type="checkbox" value="" /> 45
+                <input style="margin-top:.5em;" id="doubleOverride" type="checkbox" value="" /> Dbl
+                <div class="col-med-12">
+                    <button id="Lunchsubmit-form-override" class="btn btn-secondary btn-sm">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 12em; display:inline-block;text-align:center; margin-left:20em; margin-top:-15.25em;z-index:1">
+            @* lunch submission *@
+            <div class="card-body">
+                <h3 style="width:5em; display:inline-block; margin-top:.5em">
+                    Sign Up     <img src="~/Content/Images/question.jpg" height="15" width="15"
+                                     data-toggle="popover" title="@Lunchquestion" />
+                </h3>
+                <select class="index-dropdown" style="width:10em;" id="lunchemployeeId">
+                    <option value="" selected>-- Dispatcher --</option>
+                    @foreach (var employeeName in employee)
+                    {
+                        <option value="@employeeName.EmployeeID">@employeeName.DisplayName</option>
+                    }
+                </select>
+                <select class="index-dropdown" style="width:10em; margin-top:.5em" id="lunchtime">
+                    <option value="" selected>-- Lunch Time --</option>
+                </select>
+                <select class="index-dropdown" id="lunchposition" style="margin-top: .5em; width:10em; text-align:center">
+                    <option value="" selected>-- Position --</option>
+                    @foreach (var positionName in positionOrdered)
+                    {
+                        <option value="@positionName.PositionID">@positionName.PositionName</option>
+                    }
+                </select>
+                <input style="margin-top:.5em;" id="lunch45" type="checkbox" value="" /> 45
+                <div class="col-med-12">
+                    <button id="Lunchsubmit-form" class="btn btn-secondary btn-sm">Submit</button>
+                </div>
+            </div>
+        </div>
+        @* Lunch table *@
+        <div class="card" style="width: 15em; display:inline-block; margin-left:40em; margin-top:-14.5em;">
+            <div class="card-body">
+                <h3 class="card-title" style="text-align:center; display:inline-block">Lunch List</h3>
+                <table class="table-bordered" style="width:13em">
+                    @*populate the table with only those breaks that lack a TimeCleared value*@
+                    @if (Model.Lunches != null)
+                    {
+                        foreach (var item in modelOrdered)
+                        {
+                            if (DateTime.Now < item.LunchTime.AddHours(1) && item.TimeCleared == null)
+                            {
+                                <tr>
+                                    @*Make each name clickable - deletes the lunch*@
+                                    <td class="
+                                                    Number">
+                                        @if (item.LongerLunch == false && item.Double == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName</a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == false)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl</div></a>
+                                        }
+                                        @if (item.Double == false && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - 45</div></a>
+                                        }
+                                        @if (item.Double == true && item.LongerLunch == true)
+                                        {
+                                            <input type="hidden" class="hiddenLunchID" value="@item.LunchID" />
+                                            <a href="Javascript:;" class="empNameLunch" style="color:black">@item.Employee.DisplayName <div style="font-weight:bold; display:inline-block"> - Dbl -45</div></a>
+                                        }
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.Position.PositionName
+                                    </td>
+                                    <td class="LunchIdNumber" style="width:3em;">
+                                        @item.LunchTime.ToString("HH:mm")
+                                    </td>
+                                </tr>
+
+                            }
+                        }
+                    }
+                </table>
+                <a style="margin-left:1em; margin-top:1em" class="btn btn-secondary btn-sm" href="/Home/Index" role="button">Home Page</a>
+            </div>
+        </div>
+    </div>
+</div>

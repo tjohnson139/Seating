@@ -1,0 +1,10 @@
+﻿@{
+    <title>WCCCA Seating Chart</title>
+    <link rel="icon" href="~/Content/Images/wccca.png"
+          type="image/x-icon">
+}
+@if (User.Identity.IsAuthenticated)
+{
+    @model Seating.Models.IndexViewModel
+    <h3 style="margin-left:10em; margin-top:1em; width:30em">Search Features will go here</h3>
+}

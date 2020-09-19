@@ -1,0 +1,52 @@
+﻿@model Seating.Models.Message
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Messages</title>
+</head>
+<body>
+    @using (Html.BeginForm()) 
+    {        
+    <div class="form-horizontal" style="margin-left:15em; margin-top:2em">
+        <h4>Front Page Messages</h4>
+        <hr />
+        <div class="form-group" style="width:30em;">
+            <div class="control-label" style="margin-left:.5em">Message Text (50 character max)</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MessageText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MessageText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="dropdown" style="text-align:left; width:7em; margin-left:.5em;">
+            <select class="form-control">
+                <option>Priority</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2" style="margin-top:1em">Days Active (Numbers Only)</div>
+            <div class="col-md-10" style="width:4em;">
+                @Html.EditorFor(model => model.MessageText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MessageText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+            <div class="col-med-12" style="margin-top: 1em; margin-left:.5em">
+                <button id="message-submit" class="btn btn-secondary btn-sm">Submit</button>
+            </div>
+        </div>
+    </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

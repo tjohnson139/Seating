@@ -1654,3 +1654,5 @@ C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.csproj.CopyComplete
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.dll
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.pdb
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.chart.resources
+C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.resetRemoveChart.resources
+C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.queries.resources

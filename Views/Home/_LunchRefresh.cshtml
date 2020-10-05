@@ -1,16 +1,15 @@
 ﻿@model Seating.Models.ApplicationDbContext
 
 @{
-    Layout = null;
-    var employee = new List<Seating.Models.Employee>();
-    employee = (List<Seating.Models.Employee>)ViewBag.EmployeesNames;
-    var positionNames = new List<Seating.Models.Position>();
-    positionNames = (List<Seating.Models.Position>)ViewBag.PositionNames;
+    var employee = ViewBag.EmployeesNames;
+    var positionNames = ViewBag.PositionNames;
+    var modelOrdered = ViewBag.Lunches;
+    var positionOrdered = ViewBag.positionNames;
+    var breakOffFloor = ViewBag.breakOffFloor;
+    var dthOffFloor = ViewBag.dthOffFloor;
+    var lunchOffFloor = ViewBag.lunchOffFloor;
     List<string> times = Seating.Helper.Common.getTimes();
     List<string> timesOver = Seating.Helper.Common.getTimesOver();
-    var modelOrdered = Model.Lunches.OrderBy(m => m.LunchTime);
-    var positionOrdered = new List<Seating.Models.Position>();
-    positionOrdered = (List<Seating.Models.Position>)ViewBag.positionOrdered;
     var Overridequestion = "DO NOT USE THIS UNLESS:\n\n--You have supervisor permission for a double lunch. If you are doubling your lunch, check the \"Dbl\"" +
                 "checkbox to alert relief that there are double lunches. If you have a 45 minute lunch, also check the \"45\" checkbox.\n\n--You have permission to take" +
                 " a lunch outside of normal lunch times for maternity breaks, etc.\n\n" +

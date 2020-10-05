@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ph14430429082_ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Breaks">
+      <EntityTypeMapping TypeName="ph14430429082_Model.Break">
+        <MappingFragment StoreEntitySet="Breaks">
+          <ScalarProperty Name="BreakID" ColumnName="BreakID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+          <ScalarProperty Name="TimeCleared" ColumnName="TimeCleared" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="EmpSent" ColumnName="EmpSent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

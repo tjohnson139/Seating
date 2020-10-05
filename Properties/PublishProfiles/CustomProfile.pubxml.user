@@ -709,6 +709,36 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Microsoft.DiaSymReader.Native.x86.dll">
       <publishTime>05/30/2020 19:09:16</publishTime>
     </File>
+    <File Include="Queries/Break.cs">
+      <publishTime>10/05/2020 08:46:35</publishTime>
+    </File>
+    <File Include="Queries/Dth.cs">
+      <publishTime>10/05/2020 08:46:35</publishTime>
+    </File>
+    <File Include="Queries/ListData.Context.cs">
+      <publishTime>10/05/2020 08:46:21</publishTime>
+    </File>
+    <File Include="Queries/ListData.Context.tt">
+      <publishTime>10/05/2020 08:46:06</publishTime>
+    </File>
+    <File Include="Queries/ListData.cs">
+      <publishTime>10/05/2020 08:46:38</publishTime>
+    </File>
+    <File Include="Queries/ListData.Designer.cs">
+      <publishTime>10/05/2020 08:46:39</publishTime>
+    </File>
+    <File Include="Queries/ListData.edmx">
+      <publishTime>10/05/2020 08:46:08</publishTime>
+    </File>
+    <File Include="Queries/ListData.edmx.diagram">
+      <publishTime>10/05/2020 08:46:08</publishTime>
+    </File>
+    <File Include="Queries/ListData.tt">
+      <publishTime>10/05/2020 08:46:07</publishTime>
+    </File>
+    <File Include="Queries/Lunch.cs">
+      <publishTime>10/05/2020 08:46:35</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>05/30/2020 19:08:41</publishTime>
     </File>

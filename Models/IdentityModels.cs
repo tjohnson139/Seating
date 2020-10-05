@@ -41,7 +41,5 @@ namespace Seating.Models
 
         public System.Data.Entity.DbSet<Seating.Models.Position> Positions { get; set; }
 
-        public System.Data.Entity.DbSet<Seating.Models.ChartDate> ChartDates { get; set; }
-
     }
 }

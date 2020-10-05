@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ph14430429082_Model2StoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Lunches">
+      <EntityTypeMapping TypeName="ph14430429082_Model2.Lunch">
+        <MappingFragment StoreEntitySet="Lunches">
+          <ScalarProperty Name="LunchID" ColumnName="LunchID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="LunchTime" ColumnName="LunchTime" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="LongerLunch" ColumnName="LongerLunch" />
+          <ScalarProperty Name="Double" ColumnName="Double" />
+          <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+          <ScalarProperty Name="EmpSent" ColumnName="EmpSent" />
+          <ScalarProperty Name="TimeCleared" ColumnName="TimeCleared" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

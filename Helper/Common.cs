@@ -245,7 +245,7 @@ namespace Seating.Helper
                 times.Add(new DateTime(dt.Year, dt.Month, dt.Day, 03, 00, 0).AddDays(1).ToString("M/d/yy HH:mm"));
             }
 
-            if (dt.Hour >= 20 && dt.Hour < 23 && dt.Minute < 59)
+            if (dt.Hour == 20 || dt.Hour == 21 || dt.Hour == 22 || dt.Hour == 23)
             {
                 times.Add(new DateTime(dt.Year, dt.Month, dt.Day, 20, 00, 0).ToString("M/d/yy HH:mm"));
                 times.Add(new DateTime(dt.Year, dt.Month, dt.Day, 20, 30, 0).ToString("M/d/yy HH:mm"));
@@ -965,7 +965,7 @@ namespace Seating.Helper
                 times.Add(new DateTime(dt.Year, dt.Month, dt.Day, 10, 00, 0).AddDays(1).ToString("M/d/yy HH:mm"));
             }
 
-            if (dt.Hour >= 23 && dt.Hour < 23 && dt.Minute <= 59)
+            if (dt.Hour == 20 || dt.Hour == 21 || dt.Hour == 22 || dt.Hour == 23)
 
             {
                 times.Add(new DateTime(dt.Year, dt.Month, dt.Day, 23, 00, 0).ToString("M/d/yy HH:mm"));

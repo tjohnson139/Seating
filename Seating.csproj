@@ -403,6 +403,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
@@ -567,7 +568,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\ChartDatesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -672,10 +672,17 @@
     <Compile Include="Migrations\202009142255209_chart.designer.cs">
       <DependentUpon>202009142255209_chart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010032101570_resetRemoveChart.cs" />
+    <Compile Include="Migrations\202010032101570_resetRemoveChart.designer.cs">
+      <DependentUpon>202010032101570_resetRemoveChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010051711397_queries.cs" />
+    <Compile Include="Migrations\202010051711397_queries.designer.cs">
+      <DependentUpon>202010051711397_queries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Break.cs" />
-    <Compile Include="Models\ChartDate.cs" />
     <Compile Include="Models\Dth.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -684,6 +691,21 @@
     <Compile Include="Models\Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\BreakListData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BreakListData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\DthListData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DthListData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Queries\LunchListData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LunchListData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -737,6 +759,39 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Queries\BreakListData.xsc">
+      <DependentUpon>BreakListData.xsd</DependentUpon>
+    </Content>
+    <None Include="Queries\BreakListData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BreakListData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Queries\BreakListData.xss">
+      <DependentUpon>BreakListData.xsd</DependentUpon>
+    </Content>
+    <Content Include="Queries\DthListData.xsc">
+      <DependentUpon>DthListData.xsd</DependentUpon>
+    </Content>
+    <None Include="Queries\DthListData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DthListData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Queries\DthListData.xss">
+      <DependentUpon>DthListData.xsd</DependentUpon>
+    </Content>
+    <Content Include="Queries\LunchListData.xsc">
+      <DependentUpon>LunchListData.xsd</DependentUpon>
+    </Content>
+    <None Include="Queries\LunchListData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LunchListData.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Queries\LunchListData.xss">
+      <DependentUpon>LunchListData.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.5.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.0.js" />
     <Content Include="Scripts\jquery-3.5.0.min.js" />
@@ -881,12 +936,6 @@
     <Content Include="Views\Home\_EmpDropDown.cshtml" />
     <Content Include="Views\Shared\NotAuthorized.cshtml" />
     <Content Include="Views\Home\_LunchRefresh.cshtml" />
-    <Content Include="Views\ChartDates\Create.cshtml" />
-    <Content Include="Views\ChartDates\Delete.cshtml" />
-    <Content Include="Views\ChartDates\Details.cshtml" />
-    <Content Include="Views\ChartDates\Edit.cshtml" />
-    <Content Include="Views\ChartDates\Index.cshtml" />
-    <Content Include="Views\ChartDates\CreateError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -967,12 +1016,19 @@
     <EmbeddedResource Include="Migrations\202009142255209_chart.resx">
       <DependentUpon>202009142255209_chart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010032101570_resetRemoveChart.resx">
+      <DependentUpon>202010032101570_resetRemoveChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010051711397_queries.resx">
+      <DependentUpon>202010051711397_queries.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />

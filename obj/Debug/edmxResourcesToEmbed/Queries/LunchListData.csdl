@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ph14430429082_Model2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Lunch">
+    <Key>
+      <PropertyRef Name="LunchID" />
+    </Key>
+    <Property Name="LunchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="LunchTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PositionID" Type="Int32" Nullable="false" />
+    <Property Name="LongerLunch" Type="Boolean" />
+    <Property Name="Double" Type="Boolean" />
+    <Property Name="TimeEntered" Type="DateTime" Precision="3" />
+    <Property Name="EmpSent" Type="Boolean" Nullable="false" />
+    <Property Name="TimeCleared" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Lunches" EntityType="Self.Lunch" />
+  </EntityContainer>
+</Schema>

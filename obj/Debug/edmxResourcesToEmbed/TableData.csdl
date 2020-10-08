@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ph14430429082_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ph14430429082_Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="BreakListData" ReturnType="Collection(ph14430429082_Model.BreakListData_Result)" />
+    <FunctionImport Name="DthListData" ReturnType="Collection(ph14430429082_Model.DthListData_Result)" />
+    <FunctionImport Name="LunchListData" ReturnType="Collection(ph14430429082_Model.LunchListData_Result)" />
+  </EntityContainer>
+  <ComplexType Name="BreakListData_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="Int32" Name="BreakID" Nullable="false" />
+    <Property Type="DateTime" Name="TimeEntered" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="TimeCleared" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="PositionID" Nullable="true" />
+    <Property Type="Boolean" Name="EmpSent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="DthListData_Result">
+    <Property Type="Int32" Name="DthID" Nullable="false" />
+    <Property Type="DateTime" Name="TimeEntered" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="Int32" Name="PositionID" Nullable="true" />
+    <Property Type="DateTime" Name="TimeCleared" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="EmpSent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="LunchListData_Result">
+    <Property Type="Int32" Name="LunchID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="DateTime" Name="LunchTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="PositionID" Nullable="false" />
+    <Property Type="Boolean" Name="LongerLunch" Nullable="true" />
+    <Property Type="DateTime" Name="TimeEntered" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Double" Nullable="true" />
+    <Property Type="DateTime" Name="TimeCleared" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="EmpSent" Nullable="false" />
+  </ComplexType>
+</Schema>

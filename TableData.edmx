@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ph14430429082_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="BreakListData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Seating" />
+        <Function Name="DthListData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Seating" />
+        <Function Name="LunchListData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Seating" />
+        <EntityContainer Name="ph14430429082_ModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ph14430429082_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ph14430429082_Entities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="BreakListData" ReturnType="Collection(ph14430429082_Model.BreakListData_Result)" />
+          <FunctionImport Name="DthListData" ReturnType="Collection(ph14430429082_Model.DthListData_Result)" />
+          <FunctionImport Name="LunchListData" ReturnType="Collection(ph14430429082_Model.LunchListData_Result)" />
+        </EntityContainer>
+        <ComplexType Name="BreakListData_Result">
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="Int32" Name="BreakID" Nullable="false" />
+          <Property Type="DateTime" Name="TimeEntered" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="TimeCleared" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="PositionID" Nullable="true" />
+          <Property Type="Boolean" Name="EmpSent" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="DthListData_Result">
+          <Property Type="Int32" Name="DthID" Nullable="false" />
+          <Property Type="DateTime" Name="TimeEntered" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="Int32" Name="PositionID" Nullable="true" />
+          <Property Type="DateTime" Name="TimeCleared" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="EmpSent" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="LunchListData_Result">
+          <Property Type="Int32" Name="LunchID" Nullable="false" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="DateTime" Name="LunchTime" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="PositionID" Nullable="false" />
+          <Property Type="Boolean" Name="LongerLunch" Nullable="true" />
+          <Property Type="DateTime" Name="TimeEntered" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="Double" Nullable="true" />
+          <Property Type="DateTime" Name="TimeCleared" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="EmpSent" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ph14430429082_ModelStoreContainer" CdmEntityContainer="ph14430429082_Entities" >
+          <FunctionImportMapping FunctionImportName="BreakListData" FunctionName="ph14430429082_Model.Store.BreakListData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ph14430429082_Model.BreakListData_Result">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="BreakID" ColumnName="BreakID" />
+                <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+                <ScalarProperty Name="TimeCleared" ColumnName="TimeCleared" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="EmpSent" ColumnName="EmpSent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DthListData" FunctionName="ph14430429082_Model.Store.DthListData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ph14430429082_Model.DthListData_Result">
+                <ScalarProperty Name="DthID" ColumnName="DthID" />
+                <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="TimeCleared" ColumnName="TimeCleared" />
+                <ScalarProperty Name="EmpSent" ColumnName="EmpSent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LunchListData" FunctionName="ph14430429082_Model.Store.LunchListData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ph14430429082_Model.LunchListData_Result">
+                <ScalarProperty Name="LunchID" ColumnName="LunchID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="LunchTime" ColumnName="LunchTime" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="LongerLunch" ColumnName="LongerLunch" />
+                <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+                <ScalarProperty Name="Double" ColumnName="Double" />
+                <ScalarProperty Name="TimeCleared" ColumnName="TimeCleared" />
+                <ScalarProperty Name="EmpSent" ColumnName="EmpSent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

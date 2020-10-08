@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ph14430429082_ModelStoreContainer" CdmEntityContainer="ph14430429082_Entities">
+    <FunctionImportMapping FunctionImportName="BreakListData" FunctionName="ph14430429082_Model.Store.BreakListData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ph14430429082_Model.BreakListData_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="BreakID" ColumnName="BreakID" />
+          <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+          <ScalarProperty Name="TimeCleared" ColumnName="TimeCleared" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="EmpSent" ColumnName="EmpSent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DthListData" FunctionName="ph14430429082_Model.Store.DthListData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ph14430429082_Model.DthListData_Result">
+          <ScalarProperty Name="DthID" ColumnName="DthID" />
+          <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="TimeCleared" ColumnName="TimeCleared" />
+          <ScalarProperty Name="EmpSent" ColumnName="EmpSent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LunchListData" FunctionName="ph14430429082_Model.Store.LunchListData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ph14430429082_Model.LunchListData_Result">
+          <ScalarProperty Name="LunchID" ColumnName="LunchID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="LunchTime" ColumnName="LunchTime" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="LongerLunch" ColumnName="LongerLunch" />
+          <ScalarProperty Name="TimeEntered" ColumnName="TimeEntered" />
+          <ScalarProperty Name="Double" ColumnName="Double" />
+          <ScalarProperty Name="TimeCleared" ColumnName="TimeCleared" />
+          <ScalarProperty Name="EmpSent" ColumnName="EmpSent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

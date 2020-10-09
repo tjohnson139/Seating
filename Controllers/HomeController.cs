@@ -99,13 +99,13 @@ namespace Seating.Controllers
 
             ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
             ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-            ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-            ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-            ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-            ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-            ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-            ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-            ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+            ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+            ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+            ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+            ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+            ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+            ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+            ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
 
             return View();
@@ -192,13 +192,13 @@ namespace Seating.Controllers
 
             ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
             ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-            ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-            ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-            ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-            ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-            ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-            ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-            ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+            ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+            ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+            ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+            ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+            ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+            ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+            ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
             string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
             return Json(new { valid = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -294,13 +294,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -316,8 +316,8 @@ namespace Seating.Controllers
         {
             try
             {
-                var oldBreaksModel = db.Breaks.Where(x => x.BreakID == breakID).FirstOrDefault();
-                oldBreaksModel.TimeCleared = DateTime.Now;
+                Break breaks = db.Breaks.Find(breakID);
+                db.Breaks.Remove(breaks);
                 db.SaveChanges();
 
                 var breaksList = db.Breaks.ToList();
@@ -399,13 +399,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -504,12 +504,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -608,13 +609,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -713,13 +714,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -817,13 +818,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -921,13 +922,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -1026,13 +1027,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -1131,13 +1132,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -1160,8 +1161,8 @@ namespace Seating.Controllers
         {
             try
             {
-                var oldDthModel = db.Dths.Where(x => x.DthID == dthID).FirstOrDefault();
-                oldDthModel.TimeCleared = DateTime.Now;
+                Dth dths = db.Dths.Find(dthID);
+                db.Dths.Remove(dths);
                 db.SaveChanges();
 
                 var breaksList = db.Breaks.ToList();
@@ -1242,13 +1243,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -1347,13 +1348,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -1369,8 +1370,8 @@ namespace Seating.Controllers
         {
             try
             {
-                var oldLunchModel = db.Lunches.Where(x => x.LunchID == lunchID).FirstOrDefault();
-                oldLunchModel.TimeCleared = DateTime.Now;
+                Lunch lunches = db.Lunches.Find(lunchID);
+                db.Lunches.Remove(lunches);
                 db.SaveChanges();
 
                 var breaksList = db.Breaks.ToList();
@@ -1452,13 +1453,13 @@ namespace Seating.Controllers
 
                 ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
                 ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-                ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-                ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+                ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+                ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+                ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+                ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+                ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
 
                 string partialHtml = Common.RenderRazorViewToString(ControllerContext, "~/Views/Home/_DropDowns.cshtml");
                 return Json(new { success = true, html = partialHtml }, JsonRequestBehavior.AllowGet);
@@ -1625,13 +1626,13 @@ namespace Seating.Controllers
 
             ViewBag.EmployeesNames = db.Employees.Where(x => x.NotActive == false).OrderBy(x => x.DisplayName).ToList();
             ViewBag.PositionNames = db.Positions.OrderBy(x => x.PositionName).ToList();
-            ViewBag.LunchTimes = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-            ViewBag.Dths = db.Dths.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-            ViewBag.Breaks = db.Breaks.Where(x => x.TimeCleared == null).OrderBy(x => x.TimeEntered).ToList();
-            ViewBag.Lunches = db.Lunches.Where(x => x.TimeCleared == null).OrderBy(x => x.LunchTime).ToList();
-            ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-            ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
-            ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true && x.TimeCleared == null).ToList();
+            ViewBag.LunchTimes = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+            ViewBag.Dths = db.Dths.OrderBy(x => x.TimeEntered).ToList();
+            ViewBag.Breaks = db.Breaks.OrderBy(x => x.TimeEntered).ToList();
+            ViewBag.Lunches = db.Lunches.OrderBy(x => x.LunchTime).ToList();
+            ViewBag.breakOffFloor = db.Breaks.Where(x => x.EmpSent == true).ToList();
+            ViewBag.dthOffFloor = db.Dths.Where(x => x.EmpSent == true).ToList();
+            ViewBag.lunchOffFloor = db.Lunches.Where(x => x.EmpSent == true).ToList();
             return View(db);
         }
 

@@ -11,6 +11,8 @@
     var lunchOffFloor = ViewBag.lunchOffFloor;
     List<string> times = Seating.Helper.Common.getTimes();
     List<string> timesOver = Seating.Helper.Common.getTimesOver();
+    var dt = DateTime.Now;
+    DateTime t1500 = Convert.ToDateTime("15:00");
 
     <link href='https://fonts.googleapis.com/css?family=Alegreya Sans SC' rel='stylesheet'>
 }
@@ -41,7 +43,7 @@
 </head>
 <body>
     @* Display the table showing who can take their lunches based on the time the employee works *@
-    <div class="container" style="margin-left:3em">
+    <div class="container" style="margin-left:23em; margin-top:5em">
         <div id="instructions" style="margin-top:0em;">
             <h1 style="text-align:center; font-family: 'Alegreya Sans SC';">Lunch List Entry</h1>
             <h3 style="text-align:center; font-family: 'Alegreya Sans SC'; color:red">Always take a spot designated for your assigned shift</h3>

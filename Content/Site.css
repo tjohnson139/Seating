@@ -172,6 +172,10 @@ dl {
     }
 }
 
+.lunchTaken {
+    color:lightcoral;
+    text-decoration:line-through;
+}
 .listTime {
     -webkit-animation: listTime 1s infinite; /* Safari 4+ */
     -moz-animation: listTime 1s infinite; /* Fx 5+ */

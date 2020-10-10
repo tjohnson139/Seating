@@ -1624,7 +1624,6 @@ C:\Users\tyler\OneDrive\Desktop\Seating\bin\ru\Microsoft.CodeAnalysis.CSharp.res
 C:\Users\tyler\OneDrive\Desktop\Seating\bin\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\tyler\OneDrive\Desktop\Seating\bin\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\tyler\OneDrive\Desktop\Seating\bin\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.csprojAssemblyReference.cache
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.initial.resources
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations._0405.resources
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.breakposition.resources
@@ -1648,11 +1647,12 @@ C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.clearlunch.
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.dropmessage.resources
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.scheduletime.resources
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.removeschedule.resources
+C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.chart.resources
+C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.resetRemoveChart.resources
+C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.queries.resources
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.csproj.GenerateResource.cache
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.csproj.CoreCompileInputs.cache
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.csproj.CopyComplete
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.dll
 C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.pdb
-C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.chart.resources
-C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.resetRemoveChart.resources
-C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.Migrations.queries.resources
+C:\Users\tyler\OneDrive\Desktop\Seating\obj\Debug\Seating.csprojAssemblyReference.cache

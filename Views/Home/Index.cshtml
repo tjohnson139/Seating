@@ -6,6 +6,9 @@
     var positionOrdered = ViewBag.positionNames;
 }
 
+<title>@ViewBag.Title WCCCA Seating Chart</title>
+<link rel="icon" href="~/Content/Images/wccca.png"
+      type="image/x-icon">
 <div id="header">
     @Html.Partial("_Header")
 </div>
@@ -72,17 +75,17 @@
 
 @*site loader to bring the seating chart in*@
 <script>
-    $("#siteloader").html('<object data="https://docs.google.com/spreadsheets/d/1v-ZSkfiv32IjmtTlZWenC9-9epcWokwWuncPB0CSVM8/edit#gid=959361132" />');
+    $("#siteloader").html('<object data="https://docs.google.com/spreadsheets/d/1995yC-7ikytqaakEm7cdWQIVcRwPK9QVTInj9GKd4KU/edit#gid=285934324" />');
 </script>
 
 @*Questionmark hovers*@
 <script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover({
-        placement : 'top',
-        trigger : 'hover'
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            placement: 'top',
+            trigger: 'hover'
+        });
     });
-});
 </script>
 
 @*Break List*@
@@ -170,7 +173,7 @@ $(document).ready(function(){
         @* Auto Refresh Break / Lunch / DTH list every minute *@
         window.setInterval(function () {
             RefreshDropDownsPartial();
-        }, 10000);
+        }, 4000);
 
         @* DTH submission *@
         $(document).on("click", "#Dthsubmit-form", function () {

@@ -1,4 +1,4 @@
-﻿@{
+﻿﻿@{
     var employee = ViewBag.EmployeesNames;
     var positionNames = ViewBag.PositionNames;
     var modelOrdered = ViewBag.Lunches;
@@ -46,6 +46,42 @@
     }
 }
 
+@foreach (var item in ViewBag.Dths)
+{
+    if (item.EmpSent == false)
+    {
+        if (item.TimeEntered.AddSeconds(4) > DateTime.Now)
+        {
+            <iframe src="~/Content/zapsplat_multimedia_alert_bell_ping_wooden_004_54054 (4).mp3" allow="autoplay" style="display:none" id="iframeAudio">
+            </iframe>
+        }
+    }
+}
+
+@foreach (var item in ViewBag.Breaks)
+{
+    if (item.EmpSent == false)
+    {
+        if (item.TimeEntered.AddSeconds(4) > DateTime.Now)
+        {
+            <iframe src="~/Content/zapsplat_multimedia_alert_bell_ping_wooden_004_54054 (4).mp3" allow="autoplay" style="display:none" id="iframeAudio">
+            </iframe>
+        }
+    }
+}
+
+@*@foreach (var item in ViewBag.Lunches)
+{
+    if (item.EmpSent == false)
+    {
+        if (item.LunchTime.AddSeconds(10) > DateTime.Now)
+        {
+            <iframe src="~/Content/zapsplat_multimedia_alert_bell_ping_wooden_004_54054 (4).mp3" allow="autoplay" style="display:none" id="iframeAudio">
+            </iframe>
+        }
+    }
+}*@
+
 <h3 style="margin-left:10em;">Off the floor: @offFloor</h3>
 <div class="card" id="Dropdowns" style="width: 12.5em; margin-left: .5em; position:absolute">
     <div class="card-body" id="refresh-card" style="margin-right:3em; margin-left:-.5em">
@@ -53,7 +89,7 @@
             DTH     <img src="~/Content/Images/question.jpg" height="15" width="15"
                          data-toggle="popover" title="@DTHquestion" />
         </h5>
-        <table class="table-bordered" style="width:10em;">
+        <table class="table-bordered" style="width:12em;">
             @*populate the table with only those breaks that lack a TimeCleared value*@
             @if (ViewBag.Dths != null)
             {
@@ -163,7 +199,7 @@
             Break     <img src="~/Content/Images/question.jpg" height="15" width="15"
                            data-toggle="popover" title="@Breakquestion" />
         </h5>
-        <table class="table-bordered" style="width:11em">
+        <table class="table-bordered" style="width:12em">
             @*populate the table with only those breaks that lack a TimeCleared value*@
             @if (ViewBag.Breaks != null)
             {
@@ -269,7 +305,7 @@
 <div class="card" style="width: 17em; display:inline-block;margin-left:25.5em;position: absolute;">
     <div class="card-body">
         <h5 class="card-title " style="text-align:center; display:inline-block; margin-left:3em">
-            Lunch     <img src="~/Content/Images/question.jpg" height="15" width="15"
+            Lunch     <img src="~/Content/Images/question.jpg" height="15" width="17"
                            data-toggle="popover" title="@Lunchquestion" />
         </h5>
         <table class="table-bordered" id="table_lunch" style="width:15em;">
@@ -278,7 +314,7 @@
             {
                 foreach (var item in modelOrdered)
                 {
-                    if (DateTime.Now >= item.LunchTime.AddMinutes(-1) && DateTime.Now <= item.LunchTime.AddMinutes(1))
+                    if (DateTime.Now.AddHours(-1) >= item.LunchTime.AddMinutes(-1) && DateTime.Now.AddHours(-1) <= item.LunchTime.AddMinutes(1))
                     {
                         if (item.EmpSent == false)
                         {

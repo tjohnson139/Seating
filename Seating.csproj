@@ -721,8 +721,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\disabledcheck.jpg" />
     <Content Include="Content\Images\Exclamation.png" />
+    <Content Include="Content\Images\Jeff.jpg" />
     <Content Include="Content\Images\question.jpg" />
     <Content Include="Content\Images\wccca.png" />
+    <Content Include="Content\zapsplat_multimedia_alert_bell_ping_wooden_004_54054 %284%29.mp3" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
